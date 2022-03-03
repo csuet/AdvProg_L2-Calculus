@@ -49,7 +49,7 @@ double mySqrt(double x) {
     }
     else
     {
-        return sqrt(x)
+        return sqrt(x);
     }
     
 }
