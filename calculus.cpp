@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <array>
 
 using std::string;
 using std::cout;
@@ -21,28 +22,12 @@ const double HALF_PI = PI / 2;
 /// it makes calculation of sin(x) and cos(x) faster and more accurate
 double bringTo2Pi(double x)
 {
-
     bool is_negative = false;
     if (x < 0) {
         is_negative = true;
         x = -x;
     }
-
-    double result;
-    if (x < TWO_PI) result = x;
-    else {
-        ///find a maximum exp such that 2PI * 2^exp <= x
-        int exp;
-        std::frexp(x / TWO_PI, &exp);
-        --exp;
-        double multiple_of_pi = std::ldexp(TWO_PI, exp);
-        for (int i = 0; i <= exp; ++i) {
-            if (multiple_of_pi <= x) x -= multiple_of_pi;
-            multiple_of_pi /= 2;
-        }
-        result = x;
-    }
-
+    double result = x - std::floor(x / TWO_PI) * TWO_PI;
     if (is_negative) result = TWO_PI - result;
     return result;
 }
@@ -55,6 +40,7 @@ double bringTo2Pi(double x)
 ***/
 double myCos(double x) 
 {
+    if (x == 0) return 1;
     x = bringTo2Pi(x);
     if (x > PI) x = TWO_PI - x;
     bool negated = false;
@@ -63,16 +49,18 @@ double myCos(double x)
         negated = true;
     }
     ///now x is in [0, PI/2]
-    static const int ITERATIONS = 10;
+    static const int ITERATIONS = 9;
+    static const std::array<double, ITERATIONS> COEFICIENT_TABLE = [] {
+        std::array<double, ITERATIONS> result{};
+        for (int i = 0; i < ITERATIONS; ++i)
+            result[i] = -1.0 / ((2 * i + 1) * (2 * i + 2));
+        return result;
+    }();
     double x_squared = x * x;
     double result = 1;
     double term = 1;
-    int order = 0;
-
     for (int i = 0; i < ITERATIONS; ++i) {
-        term *= -x_squared;
-        order += 2;
-        term /= (order - 1) * (order);
+        term *= x_squared * COEFICIENT_TABLE[i];
         result += term;
     }
     if (negated) result = -result;
