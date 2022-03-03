@@ -12,17 +12,6 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-double giaiThua(int x) {
-    int kq =1;
-    if (x == 0) {
-        return kq;
-    }
-    for (int i = 1; i <=x;i++) {
-        kq *= i;
-    }
-    return kq;
-}
-
 /***
     Args:
         x (double): a number
