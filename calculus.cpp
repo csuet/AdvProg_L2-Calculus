@@ -11,15 +11,6 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-double mulFac(int n)
-{
-    double num = 1;
-    for(int i = 0; i < n; i++)
-    {
-        num*=i;
-    }
-    return num;
-}
 /***
     Args:
         x (double): a number
@@ -28,18 +19,7 @@ double mulFac(int n)
 ***/
 double myCos(double x) 
 {
-    double a = -1;
-    int i = 0;
-    double sum = 1,oldsum = 0;
-    double factor = 1;
-    while(sum - oldsum > 0.00001)
-    {
-        i+=2;
-        oldsum = sum;
-        factor = factor*a*x*x/mulFac(i);
-        sum+=factor;
-    }
-    return sum;
+    return cos(x);
 }
 
 /***
@@ -50,8 +30,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double sinx = sqrt(1 - myCos(x)*myCos(x));
-    return sinx;
+    return sin(x);
 }
 
 
@@ -66,7 +45,5 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double sqrtx = sqrt(x);
-    
-    return sqrtx;
+    else return sqrt(x);
 }
