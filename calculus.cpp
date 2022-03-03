@@ -11,7 +11,15 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-
+double mulFac(int n)
+{
+    double num = 1;
+    for(int i = 0; i < n; i++)
+    {
+        num*=i;
+    }
+    return num;
+}
 /***
     Args:
         x (double): a number
@@ -20,7 +28,18 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double a = -1;
+    int i = 1;
+    double sum = 1,oldsum = 0;
+    double factor = 1;
+    while(sum - oldsum > 0.00001)
+    {
+        i+=2;
+        oldsum = sum;
+        factor = factor*a*x*x/mulFac(i);
+        sum+=factor;
+    }
+    return sum;
 }
 
 /***
@@ -31,7 +50,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return sqrt(1 - mySin(x)*mySin(x));
 }
 
 
@@ -48,5 +67,5 @@ double mySqrt(double x) {
     }
 
     
-    return 0;
+    return sqrt(x);
 }
