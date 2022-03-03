@@ -7,7 +7,7 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
-using std::cerr;
+
 
 
 double mySin(double x);
@@ -36,7 +36,7 @@ double myCos(double x)
         positive =-positive;
         oldsum=sum;
         sum+=mu/lt*positive;
-       // cerr<<i<<" "<<mu<<" "<<lt<<" "<<positive<<endl;
+
     }
     return sum;
 }
@@ -63,7 +63,6 @@ double mySin(double x)
         positive =-positive;
         oldsum=sum;
         sum+=mu/lt*positive;
-        //cerr<<i<<" "<<mu<<" "<<lt<<" "<<positive<<endl;
 
     }
     return sum;
@@ -94,11 +93,4 @@ double mySqrt(double x) {
 
     return xn_1;
 }
-int main()
-{
-    double x;
-    x=M_PI;
-    cout<<mySin(x)<<endl<<myCos(x)<<endl<<mySqrt(x)<<endl;
-    cout<<sin(x)<<" "<<cos(x)<<" "<<sqrt(x);
-    return 0;
-}
+
