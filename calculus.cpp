@@ -8,42 +8,39 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: cosine of x
-***/
-double myCos(double x) 
+
+double factor(int n)
 {
-    return 0.0;
-    return cos(x);
+	if (n == 1 || n == 0) return 1;
+	else return n * factor(n - 1);
 }
 
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: sine of x
-***/
+double myCos(double x)
+{
+    return 0.0;
+    double sum = 0;
+	for (int i = 0; i < 100; i++)
+	{
+		sum += (pow(-1, i) * pow(x, 2 * i) / factor(i * 2));
+	}
+	return sum;
+}
+
 double mySin(double x)
 {
     return 0.0;
-    return sin(x);
+    double sum = 0;
+	for (int i = 0; i < 100; i++)
+	{
+		sum += (pow(-1, i) * pow(x, 2 * i + 1) / factor(i * 2 + 1));
+	}
+	return sum;
 }
 
 
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: square root of x
-***/
 double mySqrt(double x) {
-    if (x < 0) {
-        cout << "Invalid argument" << endl;
-        exit(1);
-    }
+    cout << "Invalid argument" << endl;
+    exit(1);
 
 
     return 0;
