@@ -5,7 +5,8 @@
 using std::string;
 using std::cout;
 using std::endl;
-using std::stod;
+//using std::stod;
+//using std::cin;
 
 
 double mySin(double x);
@@ -20,7 +21,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    return cos(x);
 }
 
 /***
@@ -31,7 +32,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return sin(x);
 }
 
 
@@ -44,9 +45,15 @@ double mySin(double x)
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
-        exit(1);
+        //exit(0);
     }
-
-    
-    return 0;
+	else{
+		return sqrt(x);
+	}
 }
+/*
+int main(){
+	double x;
+	cin>>x;
+	cout<<mySin(x)<<" "<<myCos(x)<<" "<<mySqrt(x);
+}*/
