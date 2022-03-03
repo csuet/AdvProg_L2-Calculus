@@ -20,8 +20,8 @@ double mySqrt(double x);
 ***/
 double myCos(double x)
 {
-    double Cos = cos(x);
-    return Cos;
+     double Cos = cos(x);
+     return Cos;
 }
 
 /***
