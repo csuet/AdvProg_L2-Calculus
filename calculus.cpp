@@ -29,7 +29,7 @@ double mulFac(int n)
 double myCos(double x) 
 {
     double a = -1;
-    int i = 1;
+    int i = 0;
     double sum = 1,oldsum = 0;
     double factor = 1;
     while(sum - oldsum > 0.00001)
@@ -50,7 +50,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sqrt(1 - mySin(x)*mySin(x));
+    return sqrt(1 - myCos(x)*myCos(x));
 }
 
 
