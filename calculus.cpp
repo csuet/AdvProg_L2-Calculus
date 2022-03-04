@@ -18,9 +18,10 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+
+double myCos(double x)
 {
-    return 0.0;
+    return cos(x);
 }
 
 /***
@@ -29,11 +30,35 @@ double myCos(double x)
     Returns:
         double: sine of x
 ***/
-double mySin(double x)
+double sinCalFracAdd(double x, int n)
 {
-    return 0.0;
+    int sign = 0;
+    if(n%2 == 0) sign = 1;
+    else sign = -1;
+
+    double fracAdd = 1;
+    for(int i = 1; i <= 2*n + 1; ++i)
+    {
+        fracAdd = fracAdd*x/i;
+    }
+
+    return sign*fracAdd;
 }
 
+double mySin(double x)
+{
+    /*
+    double sinX = 0;
+    int n = 0;
+
+    while(abs(sinCalFracAdd(x, n)) > 0.00001)
+    {
+        sinX += sinCalFracAdd(x, n);
+        ++n;
+    }
+    return sinX;*/
+    return sin(x);
+}
 
 /***
     Args:
@@ -46,7 +71,11 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+/*
+    double sqrtX = 1.0;
+    while (abs(sqrtX * sqrtX - x) / x > 0.00001)
+        sqrtX = (x / sqrtX  - sqrtX) / 2 + sqrtX;
+    return sqrtX;*/
 
-    
-    return 0;
+    return sqrt(x);
 }
