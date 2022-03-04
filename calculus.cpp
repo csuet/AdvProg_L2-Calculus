@@ -31,9 +31,9 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {   
-    double result = x-(x*x*x)/6 +(x*x*x*x*x) / 120- (x*x*x*x*x*x*x)/5040;
+    double result1 = x-(x*x*x)/6 +(x*x*x*x*x) / 120- (x*x*x*x*x*x*x)/5040;
    // result = (roundf(result*10))/10;
-    return result;
+    return result1;
 }
 
 
@@ -48,9 +48,9 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double result = 10;
+    double result2 = 10;
     for (int i = 1;i <= 10; i++)
-       result = 1/2 *(result + x/result);
+       result2 = 1/2 *(result2 + x/result2);
  //  result = roundf(result * 10)/10;
-    return result;
+    return result2;
 }
