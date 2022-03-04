@@ -11,6 +11,11 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
+long fact(int n)
+{
+    if(n==1) return 1;
+    else return n*fact(n-1);
+}
 
 /***
     Args:
@@ -20,7 +25,14 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double result=0;
+    int n=0;
+    while((double)abs((double)(pow(-1,n)*pow(x,2*n))/fact(2*n)) >= 0.00001)
+    {
+        result += (double)(pow(-1,n)*pow(x,2*n))/fact(2*n);
+        n++;
+    }
+    return result;
 }
 
 /***
@@ -31,7 +43,14 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double result=0;
+    int n=0;
+    while((double)abs((double)(pow(-1,n)*pow(x,2*n+1))/fact(2*n+1)) >= 0.00001)
+    {
+        result += (double)(pow(-1,n)*pow(x,2*n+1))/fact(2*n+1);
+        n++;
+    }
+    return result;
 }
 
 
@@ -46,7 +65,6 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
     
-    return 0;
+    return sqrt(x);
 }
