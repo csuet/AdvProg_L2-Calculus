@@ -18,20 +18,38 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
-{
-    return 0.0;
-}
-
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: sine of x
-***/
 double mySin(double x)
 {
-    return 0.0;
+  const double PI = 3.141592653589;
+  x -= (int)(x / (PI * 2)) * (PI * 2);
+  double res = 0.0;
+  // double expo = x, factorial = 1;
+  double add = x;
+  int num = 1;
+  for (int i = 0; i < 10; ++i) {
+    res += add; add *= -1;
+    add *= x * x;
+    add /= ++num;  
+    add /= ++num;  
+  }
+  return res;
+}
+
+double myCos(double x)
+{
+  const double PI = 3.141592653589;
+  x -= (int)(x / (PI * 2)) * (PI * 2);
+  double res = 0.0;
+  // double expo = x, factorial = 1;
+  double add = 1;
+  int num = 0;
+  for (int i = 0; i < 10; ++i) {
+    res += add; add *= -1;
+    add *= x * x;
+    add /= ++num;  
+    add /= ++num;  
+  }
+  return res;
 }
 
 
@@ -46,7 +64,8 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
+    double res = 0;
+    for (int i = 0; i < 10; ++i) res -= (res * res - x) / (res * 2);
     
-    return 0;
+    return res;
 }
