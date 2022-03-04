@@ -22,7 +22,7 @@ double myCos(double x)
 {
     double Sum=1,oldSum=0;
     double n=1;
-    while(abs(Sum-oldSum)>0.001){
+    while(abs(Sum-oldSum)>0.00001){
         oldSum=Sum;
         double factorial=1;
         for(int i=1;i<=2*n;i++){
