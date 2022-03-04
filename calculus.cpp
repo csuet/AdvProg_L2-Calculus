@@ -7,20 +7,29 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-
+int giaiThua(int a);
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
+int giaiThua(int a)
+{
+    if(a <= 1) return 1;
+    else return giaiThua(a - 1) * a;
+}
 /***
     Args:
         x (double): a number
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double myCos(double x)
 {
-    return 0.0;
+    int sum  = 0;
+    for(int i = 0; i < 100; i+2){
+        sum += -pow(-1,2) * pow(x,i) * 1.0 / giaiThua(i);
+    }
+    return sum ;
 }
 
 /***
@@ -31,7 +40,11 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    int sum = 0;
+    for(int i = 1; i < 100; i+2){
+        sum += -pow(-1, 2) * pow(x, i) * 1.0 / giaiThua(i);
+    }
+    return sum;
 }
 
 
@@ -47,6 +60,6 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+
+    return sqrt(x);
 }
