@@ -82,7 +82,7 @@ double mySqrt(double x) {
         newX = oldX - (oldX * oldX - x) / (2 * oldX);
         dis = abs(oldX - newX);
         oldX = newX;
-    } while (dis >= 0.000001);
+    } while (dis >= 0.00000001);
     return newX;
     //return 0;
 }
