@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-
+#define EPSILON 0.0001
 using std::string;
 using std::cout;
 using std::endl;
@@ -20,7 +20,8 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+
+    return (double) sqrt(1.0-sin(x*3.14/180));
 }
 
 /***
@@ -31,7 +32,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return sin(x*3.14/180);
 }
 
 
@@ -45,8 +46,11 @@ double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
+    }  
+    else{
+        double result = 1.0;
+        while (fabs(result * result - x) / x >= EPSILON)
+            result = (x / result  - result) / 2 + result;
+            return result;
     }
-
-    
-    return 0;
 }
