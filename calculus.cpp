@@ -20,7 +20,22 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    while(x>2*M_PI){
+		x-=2*M_PI;
+	}
+    double cos=1.00;
+	int i=1;
+	double a=1.00;
+	while(a>0.00001){
+		a=1.00;
+		for(int j =1;j<=2*i;j++){
+			a*=x*1.00/j;
+		}
+		if(i%2==0) cos+=a;
+		else cos-=a;
+		i++;
+	}
+    return cos;
 }
 
 /***
