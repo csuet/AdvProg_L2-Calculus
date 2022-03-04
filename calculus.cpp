@@ -36,7 +36,7 @@ double cosCalFracAdd(double x, int n)
 
 double myCos(double x)
 {
-    int cosX = 0;
+    double cosX = 0;
     int n = 0;
 
     while(abs(cosCalFracAdd(x, n)) > 0.00001)
