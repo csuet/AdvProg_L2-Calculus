@@ -76,13 +76,13 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
+    const sai_so_toi_thieu = pow(10, -15);
     double oldX = 1, newX = 0, dis = 0;
     do {
         newX = oldX - (oldX * oldX - x) / (2 * oldX);
         dis = abs(oldX - newX);
         oldX = newX;
-    } while (dis >= 0.00000001);
+    } while (dis >= sai_so_toi_thieu);
     return newX;
     //return 0;
 }
