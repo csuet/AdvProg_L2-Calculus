@@ -25,7 +25,7 @@ int giaiThua(int a)
 ***/
 double myCos(double x)
 {
-    int sum  = 0;
+    double sum  = 0;
     for(int i = 0; i < 100; i ++){
         sum += pow(-1, i) * pow(x, 2 * i) * 1.0 / giaiThua(2 * i);
     }
@@ -40,7 +40,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    int sum = 0;
+    double sum = 0;
     for(int i = 0; i < 100; i ++){
         sum += pow(-1, i) * pow(x, 2 * i + 1) * 1.0 / giaiThua(2 * i + 1);
     }
