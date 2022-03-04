@@ -51,7 +51,11 @@ double mySin(double x)
     int k=1; int pos = 1;
     while (abs()>0.00001)
     {
-        result+=((pos%2)!=0?( ((1/factorial(k))*pow(x,k)) : (-(1/factorial(k))*pow(x,k))));
+        if (pos%2!=0)
+        {
+            result+=(1/factorial(k))*pow(x,k);
+        }
+        else result-=(1/factorial(k))*pow(x,k);
         k+=2; pos++;
     }
     return result;
