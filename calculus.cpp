@@ -30,7 +30,7 @@ double myCos(double x)
 {
     double result = 0;
     int k = 0;
-    while (abs(((1/factorial(2*k))*pow(-1,k)*pow(x,2*k))) > 0.00001)
+    while (abs(((1/factorial(2*k))*pow(-1,k)*pow(x,2*k))) > 0.000001)
     {
         result += ((1/factorial(2*k))*pow(-1,k)*pow(x,2*k));
         k++;
@@ -49,7 +49,7 @@ double mySin(double x)
 {
     double result = 0;
     int k=1; int pos = 1;
-    while (abs((1/factorial(k))*pow(x,k))>0.00001)
+    while (abs((1/factorial(k))*pow(x,k))>0.000001)
     {
         if (pos%2!=0)
         {
@@ -76,7 +76,7 @@ double mySqrt(double x) {
     }
     else
     {
-        while (abs(( (initialGuess*initialGuess - x) / (2*initialGuess) )) > 0.00001 )
+        while (abs(( (initialGuess*initialGuess - x) / (2*initialGuess) )) > 0.000001 )
         {
             /* code */
             initialGuess = initialGuess - ((initialGuess*initialGuess - x)/(2*initialGuess));
