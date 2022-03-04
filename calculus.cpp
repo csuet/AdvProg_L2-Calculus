@@ -36,20 +36,3 @@ double mySqrt(double x)
     double res = sqrt(x);
     return res;
 }
-
-
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: square root of x
-***/
-double mySqrt(double x) {
-    if (x < 0) {
-        cout << "Invalid argument" << endl;
-        exit(1);
-    }
-
-    
-    return 0;
-}
