@@ -22,8 +22,6 @@ const double PI = 3.14159265359;
 ***/
 double myCos(double x) 
 {
-    return cos(x);
-    x = x * (PI / 180.0);
     double res = 1;
     double sign = 1, fact = 1, POW = 1;
     for(int i = 1; i <= 5; i++) {
@@ -43,7 +41,6 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    x = x * (PI / 180.0);
     double tmp = x, res = x, fact;
     for(int i = 1; i <= 5; i++) {
         fact = 2 * i * (2 * i + 1);
