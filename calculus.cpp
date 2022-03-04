@@ -21,7 +21,7 @@ double giaiThua(double i){
     if(i==0 || i==1)
         return 1;
     else{
-        int temp=i;
+        double temp=i;
         for(int j=i-1; j>0; j--){
             temp*=j;
         }
