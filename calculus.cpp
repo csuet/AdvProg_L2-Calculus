@@ -46,7 +46,7 @@ double mySin(double x)
 {
     double Sum=x,oldSum=x-1;
     int n=1;
-    while(abs(Sum-oldSum)>0.001){
+    while(abs(Sum-oldSum)>0.00001){
         oldSum=Sum;
         double factorial=1;
         for(int i=1;i<=2*n+1;i++){
@@ -71,7 +71,7 @@ double mySqrt(double x) {
         exit(1);
     }
     double Sum=35.6,oldSum=10;
-    while(abs(Sum-oldSum)>0.001){
+    while(abs(Sum-oldSum)>0.00001){
         oldSum=Sum;
         Sum=oldSum-(oldSum*oldSum-x)/(2*oldSum);
 
