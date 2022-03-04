@@ -21,9 +21,9 @@ double mySqrt(double x);
 double myCos(double x) 
 {   
     
-    const double PI_TEST = 3.14159265359;
-    while(x>PI_TEST){
-        x-=2*PI_TEST;
+    const double PI = 3.14159265359;
+    while(x>PI){
+        x-=2*PI;
     }
     double sum=1, old_sum=0;
     long long factorial=1;
@@ -47,9 +47,9 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {   
-    const double PI_TEST = 3.14159265359;
-    while(x>PI_TEST){
-        x-=2*PI_TEST;
+    const double PI = 3.14159265359;
+    while(x>PI){
+        x-=2*PI;
     }
     double sum=x, old_sum=0;
     long long factorial=1;
