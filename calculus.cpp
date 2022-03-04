@@ -20,7 +20,29 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double res = 1;
+    double old_res = 0;
+    double epsilon = res - old_res;
+    
+    long numerator = 1;
+    long denominator = 1;
+    int n = 0;
+    
+    while(epsilon > 0.000000000001 || epsilon < -0.000000000001)
+    {
+        n++;
+        numerator *= x * x;
+        denominator *= (2 * n) * (2 * n - 1);
+        
+        old_res = res;
+        if(n % 2 == 0)
+            res += static_cast<double>(numerator) / denominator;
+        else
+            res -= static_cast<double>(numerator) / denominator;
+            
+        epsilon = res - old_res;
+    }
+    return res;
 }
 
 /***
@@ -31,7 +53,29 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double res = x;
+    double old_res = 0;
+    double epsilon = res - old_res;
+    
+    long numerator = x;
+    long denominator = 1;
+    int n = 0;
+    
+    while(epsilon > 0.000000000001 || epsilon < -0.000000000001)
+    {
+        n++;
+        numerator *= x * x;
+        denominator *= (2 * n) * (2 * n + 1);
+        
+        old_res = res;
+        if(n % 2 == 0)
+            res += static_cast<double>(numerator) / denominator;
+        else
+            res -= static_cast<double>(numerator) / denominator;
+            
+        epsilon = res - old_res;
+    }
+    return res;
 }
 
 
@@ -42,11 +86,21 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-    if (x < 0) {
+   if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    if(x == 0) return 0;
 
-    
-    return 0;
+    double res = 1;
+    double epsilon = 1;
+    double ans = x;
+    while(epsilon > 0.000000000001)
+    {
+        res = (1.0/2.0) * (ans + (x / ans));
+        epsilon = ans - res;
+        ans = res;
+    }
+
+    return res;
 }
