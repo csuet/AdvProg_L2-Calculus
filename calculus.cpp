@@ -21,6 +21,7 @@ double mySqrt(double x);
 
 double cosCalFracAdd(double x, int n)
 {
+    /*
     int sign = 0;
     if(n%2 == 0) sign = 1;
     else sign = -1;
@@ -31,7 +32,8 @@ double cosCalFracAdd(double x, int n)
         FracAdd = FracAdd*x/i;
     }
 
-    return sign*FracAdd;
+    return sign*FracAdd;*/
+    return sin(x);
 }
 
 double myCos(double x)
