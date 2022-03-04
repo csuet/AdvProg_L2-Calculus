@@ -47,8 +47,8 @@ double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
-    }
-    return sprt(x) ;
+    } else {
+    return sprt(x) ; }
 
 
     return 0;
