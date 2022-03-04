@@ -45,7 +45,7 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
+    cout << "update new...";
     
     return sqrt(x);
 }
