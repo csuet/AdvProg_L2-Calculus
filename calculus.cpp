@@ -18,9 +18,34 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+
+double cosCalFracAdd(double x, int n)
 {
-    return 0.0;
+    int sign = 0;
+    if(n%2 == 0) sign = 1;
+    else sign = -1;
+
+    double FracAdd = 1;
+    for(int i = 1; i <= 2*n; ++i)
+    {
+        FracAdd = FracAdd*x/i;
+    }
+
+    return sign*FracAdd;
+}
+
+double myCos(double x)
+{
+    int cosX = 0;
+    int n = 0;
+
+    while(cosCalFracAdd(x, n) > 0.00001)
+    {
+        cosX += cosCalFracAdd(x, n);
+        ++n;
+    }
+
+    return cosX;
 }
 
 /***
@@ -29,11 +54,33 @@ double myCos(double x)
     Returns:
         double: sine of x
 ***/
-double mySin(double x)
+double sinCalFracAdd(double x, int n)
 {
-    return 0.0;
+    int sign = 0;
+    if(n%2 == 0) sign = 1;
+    else sign = -1;
+
+    double fracAdd = 1;
+    for(int i = 1; i <= 2*n + 1; ++i)
+    {
+        fracAdd = fracAdd*x/i;
+    }
+
+    return sign*fracAdd;
 }
 
+double mySin(double x)
+{
+    double sinX = 0;
+    int n = 0;
+
+    while(abs(sinCalFracAdd(x, n)) > 0.00001)
+    {
+        sinX += sinCalFracAdd(x, n);
+        ++n;
+    }
+    return sinX;
+}
 
 /***
     Args:
@@ -47,6 +94,8 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    double sqrtX = 1.0;
+    while (abs(sqrtX * sqrtX - x) / x > 0.00001)
+        sqrtX = (x / sqrtX  - sqrtX) / 2 + sqrtX;
+    return sqrtX;
 }
