@@ -49,7 +49,7 @@ double mySin(double x)
 {
     double result = 0;
     int k=1; int pos = 1;
-    while (abs()>0.00001)
+    while (abs((1/factorial(k))*pow(x,k))>0.00001)
     {
         if (pos%2!=0)
         {
