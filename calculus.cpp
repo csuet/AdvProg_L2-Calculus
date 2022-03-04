@@ -12,6 +12,10 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
+long long int factorial( long long int number ) {
+    if ( number == 1 || number == 0 ) return 1;
+    else return number * factorial(number - 1);
+}
 /***
     Args:
         x (double): a number
@@ -20,7 +24,12 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double sum = 0;
+	for (long long int i = 0; i < 100; i++)
+	{
+		sum += (pow(-1, i) * pow(x, 2 * i) / factorial(i * 2));
+	}
+	return sum;
 }
 
 /***
@@ -31,7 +40,12 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double sum = 0;
+	for (long long int i = 0; i < 100; i++)
+	{
+		sum += (pow(-1, i) * pow(x, 2 * i + 1) / factorial(i * 2 + 1));
+	}
+	return sum;
 }
 
 
@@ -47,6 +61,12 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    double sqrtOld = x;
+    double sqrtNew = x;
+	for (int i = 0; i < 100; i++)
+	{
+		sqrtNew = 1.0 / 2 * (sqrtOld + x / sqrtOld);
+		sqrtOld = sqrtNew;
+	}
+	return sqrtNew;    
 }
