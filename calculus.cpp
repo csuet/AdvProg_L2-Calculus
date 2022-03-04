@@ -39,7 +39,7 @@ double myCos(double x)
     double cosX = 0;
     int n = 0;
 
-    while(abs(cosCalFracAdd(x, n)) > 0.00001)
+    while(abs(cosCalFracAdd(x, n)) > 0.0000001)
     {
         cosX += cosCalFracAdd(x, n);
         ++n;
