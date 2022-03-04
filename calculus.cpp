@@ -21,7 +21,7 @@ double mySqrt(double x);
 double myCos(double x) 
 {
 
-    return (double) sqrt(1.0-sin(x*3.14/180));
+    return (double) sqrt(1.0-sin(x*180/3.14));
 }
 
 /***
@@ -32,7 +32,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sin(x*3.14/180);
+    return sin(x*180/3.14);
 }
 
 
