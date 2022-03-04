@@ -27,8 +27,8 @@ double factorial(double n){
 double myCos(double x) 
 {
     double cosin = 0;
-    for (long long i = 0; i < 200; i += 2){
-        cosin += (pow(x, i) * pow(-1, i / 2)) / factorial(i);
+    for (int i = 0; i < 100; i++){
+        cosin += (pow(x, i * 2) * pow(-1, i)) / factorial(i * 2);
     }
     return cosin;
 }
@@ -42,8 +42,8 @@ double myCos(double x)
 double mySin(double x)
 {
     double sin = 0;
-    for (long long i = 1; i < 200; i += 2){
-        sin += (pow(x, i) * pow(-1, (i - 1) / 2)) / factorial(i);
+    for (int i = 0; i < 100; i++){
+        sin += (pow(x, i * 2 + 1) * pow(-1, i + 1)) / factorial(i * 2 + 1);
     }
     return sin;
 }
