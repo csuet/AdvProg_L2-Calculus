@@ -36,6 +36,7 @@ double cosCalFracAdd(double x, int n)
 
 double myCos(double x)
 {
+    /*
     double cosX = 0;
     int n = 0;
 
@@ -45,7 +46,9 @@ double myCos(double x)
         ++n;
     }
 
-    return cosX;
+    return cosX; */
+
+    return cos(x);
 }
 
 /***
