@@ -5,7 +5,7 @@
 using std::string;
 using std::cout;
 using std::endl;
-//using std::stod;
+using std::stod;
 
 
 double mySin(double x);
