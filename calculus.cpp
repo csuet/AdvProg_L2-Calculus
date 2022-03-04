@@ -1,17 +1,14 @@
+
 #include <iostream>
 #include <string>
 #include <cmath>
-
 using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
-
-
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-
 /***
     Args:
         x (double): a number
@@ -47,8 +44,7 @@ double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
+    } else {
+        return sqrt(x);
     }
-    return 0;
-    return sqrt(x);
-    
 }
