@@ -20,7 +20,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    double sum = x;
+    double sum = 1;
     int i = 2;
     double k = x*x*(-1)/i;
     sum += k;
