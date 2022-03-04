@@ -71,9 +71,11 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
+/*
     double sqrtX = 1.0;
     while (abs(sqrtX * sqrtX - x) / x > 0.00001)
         sqrtX = (x / sqrtX  - sqrtX) / 2 + sqrtX;
-    return sqrtX;
+    return sqrtX;*/
+
+    return sqrt(x);
 }
