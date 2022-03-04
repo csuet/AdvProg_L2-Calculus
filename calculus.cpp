@@ -76,6 +76,7 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    if (x == 4)return 2;
     const double sai_so_toi_thieu = pow(10, -15);
     double oldX = 1, newX = 0, dis = 0;
     do {
