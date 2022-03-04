@@ -58,6 +58,7 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
+    return sqrt(x);
     if(x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
