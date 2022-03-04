@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-int factorial(int number)
+double factorial(int number)
 {
     if (number<=1)
     {
