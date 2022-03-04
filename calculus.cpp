@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <bits/stdc++.h>
 
 using std::string;
 using std::cout;
