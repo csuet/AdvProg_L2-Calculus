@@ -21,7 +21,17 @@ double mySqrt(double x);
 double myCos(double x) 
 {
    //return 0.0;
-    return cos(x);
+    double cosX = 1, f = 1; int i = 1;
+    do {
+        f = f * x / i;
+        if (i % 4 == 2) {
+            cosX -= f;
+        }if (i % 4 == 0) {
+            cosX += f;
+        }
+        i++;
+    } while (f >= 0.000001);
+    return cosX;
 }
 
 /***
@@ -33,7 +43,18 @@ double myCos(double x)
 double mySin(double x)
 {
    // return 0.0;
-    return sin(x);
+    double sinX = 0, f = 1; int i = 1;
+    do {
+        f = f * x / i;
+        if (i % 4 == 1) {
+            sinX += f;
+        }
+        if (i % 4 == 3) {
+            sinX -= f;
+        }
+        i++;
+    } while (f >= 0.000001);
+    return sinX;
 }
 
 
@@ -49,6 +70,12 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    return sqrt(x);
+    double oldX = 1, newX = 0, dis = 0;
+    do {
+        newX = oldX - (oldX * oldX - x) / (2 * oldX);
+        dis = abs(oldX - newX);
+        oldX = newX;
+    } while (dis >= 0.000001);
+    return newX;
     //return 0;
 }
