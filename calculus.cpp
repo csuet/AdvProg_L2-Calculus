@@ -19,7 +19,7 @@ double mySqrt(double x);
         double: cosine of x
 ***/
 
-double factorial(long long n){
+double factorial(double n){
     if (n == 0) return 1;
     return factorial(n - 1) * n;
 }
