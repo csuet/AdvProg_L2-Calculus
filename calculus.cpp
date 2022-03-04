@@ -21,6 +21,7 @@ double mySqrt(double x);
 double myCos(double x) 
 {
    //return 0.0;
+    if (x < 0)x = -x;
     double cosX = 1, f = 1; int i = 1;
     do {
         f = f * x / i;
@@ -43,6 +44,11 @@ double myCos(double x)
 double mySin(double x)
 {
    // return 0.0;
+    bool isMoreThan0 = true;
+    if (x < 0) {
+        isMoreThan0 = false;
+        x = -x;
+    }
     double sinX = 0, f = 1; int i = 1;
     do {
         f = f * x / i;
@@ -54,6 +60,7 @@ double mySin(double x)
         }
         i++;
     } while (f >= 0.000001);
+    if (!isMoreThan0)return -sinX;
     return sinX;
 }
 
