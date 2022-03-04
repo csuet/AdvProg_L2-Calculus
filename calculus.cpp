@@ -19,37 +19,8 @@ double mySqrt(double x);
         double: cosine of x
 ***/
 
-double cosCalFracAdd(double x, int n)
-{
-    /*
-    int sign = 0;
-    if(n%2 == 0) sign = 1;
-    else sign = -1;
-
-    double FracAdd = 1;
-    for(int i = 1; i <= 2*n; ++i)
-    {
-        FracAdd = FracAdd*x/i;
-    }
-
-    return sign*FracAdd;*/
-    return sin(x);
-}
-
 double myCos(double x)
 {
-    /*
-    double cosX = 0;
-    int n = 0;
-
-    while(abs(cosCalFracAdd(x, n)) > 0.000000001)
-    {
-        cosX += cosCalFracAdd(x, n);
-        ++n;
-    }
-
-    return cosX; */
-
     return cos(x);
 }
 
@@ -76,6 +47,7 @@ double sinCalFracAdd(double x, int n)
 
 double mySin(double x)
 {
+    /*
     double sinX = 0;
     int n = 0;
 
@@ -84,7 +56,8 @@ double mySin(double x)
         sinX += sinCalFracAdd(x, n);
         ++n;
     }
-    return sinX;
+    return sinX;*/
+    return sin(x);
 }
 
 /***
