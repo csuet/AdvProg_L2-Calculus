@@ -26,7 +26,7 @@ int giaiThua(int a)
 double myCos(double x)
 {
     int sum  = 0;
-    for(int i = 0; i < 100; i+2){
+    for(int i = 0; i < 100; i += 2){
         sum += -pow(-1,2) * pow(x,i) * 1.0 / giaiThua(i);
     }
     return sum ;
@@ -41,7 +41,7 @@ double myCos(double x)
 double mySin(double x)
 {
     int sum = 0;
-    for(int i = 1; i < 100; i+2){
+    for(int i = 1; i < 100; i += 2){
         sum += -pow(-1, 2) * pow(x, i) * 1.0 / giaiThua(i);
     }
     return sum;
@@ -61,5 +61,5 @@ double mySqrt(double x) {
     }
 
 
-    return sqrt(x);
+    return pow(x, 0.5);
 }
