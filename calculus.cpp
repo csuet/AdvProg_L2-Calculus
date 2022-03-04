@@ -7,10 +7,11 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
+
+const double PI = 3.14159265359;
 
 /***
     Args:
@@ -20,7 +21,16 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    x = x * (PI / 180.0);
+    double res = 1;
+    double sign = 1, fact = 1, POW = 1;
+    for(int i = 1; i <= 5; i++) {
+        sign = sign * -1;
+        fact = fact * (2 * i - 1) * (2 * i);
+        POW = POW * x * x;
+        res = res + sign * POW / fact;
+    }
+    return res;
 }
 
 /***
@@ -31,7 +41,14 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    x = x * (PI / 180.0);
+    double tmp = x, res = x, fact;
+    for(int i = 1; i <= 5; i++) {
+        fact = 2 * i * (2 * i + 1);
+        tmp = -tmp * x * x / fact;
+        res = res + tmp;
+    }
+    return res;
 }
 
 
@@ -42,11 +59,15 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-    if (x < 0) {
+    if(x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    double root, n = x;
+    while(true) {
+        root = 0.5 * (x + (n / x));
+        if(fabs(root - x) < 1) break;
+        x = root;
+    }
+    return root;
 }
