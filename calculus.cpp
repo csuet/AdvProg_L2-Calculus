@@ -24,8 +24,8 @@ double myCos(double x)
     double old_res = 0;
     double epsilon = res - old_res;
     
-    long numerator = 1;
-    long denominator = 1;
+    double numerator = 1;
+    double denominator = 1;
     int n = 0;
     
     while(epsilon > 0.000000000001 || epsilon < -0.000000000001)
@@ -57,8 +57,8 @@ double mySin(double x)
     double old_res = 0;
     double epsilon = res - old_res;
     
-    long numerator = x;
-    long denominator = 1;
+    double numerator = x;
+    double denominator = 1;
     int n = 0;
     
     while(epsilon > 0.000000000001 || epsilon < -0.000000000001)
