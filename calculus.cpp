@@ -65,7 +65,7 @@ double mySqrt(double x) {
         exit(1);
     }
     double res = 0;
-    for (int i = 0; i < 10; ++i) res -= (res * res - x) / (res * 2);
+    for (int i = 0; i < 30; ++i) res -= (res * res - x) / (res * 2);
     
     return res;
 }
