@@ -18,7 +18,7 @@ double mySqrt(double x);
         double: cosine of x
 ***/
 double myCos(double x) 
-{   double result = 1- (x*x)/2 + (x*x*x*x)/2 - (x*x*x*x*x*x)/720;
+{   double result = 1- (x*x)/2 + (x*x*x*x)/24 - (x*x*x*x*x*x)/720;
    // result = (roundf(result*10))/10;
     return result;
 }
@@ -31,7 +31,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {   
-    double result = x-(x*x*x)/6 +1/120 *(x*x*x*x*x)- 1/5040 *(x*x*x*x*x*x*x);
+    double result = x-(x*x*x)/6 +(x*x*x*x*x) / 120- (x*x*x*x*x*x*x)/5040;
    // result = (roundf(result*10))/10;
     return result;
 }
