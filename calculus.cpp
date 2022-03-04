@@ -11,15 +11,13 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-double giaiThuaCos(int i);
-double giaiThuaSin(int i);
 /***
     Args:
         x (double): a number
     Returns:
         double: cosine of x
 ***/
-double giaiThuaCos(int i){
+double giaiThuaCos(double i){
     if(i==0 || i==1)
         return 1;
     else{
@@ -31,7 +29,7 @@ double giaiThuaCos(int i){
         return temp;
     }
 }
-double giaiThuaSin(int i){
+double giaiThuaSin(double i){
     if(i==0)
         return 1;
     else{
