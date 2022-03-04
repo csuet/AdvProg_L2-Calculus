@@ -7,12 +7,12 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-int giaiThua(int a);
+double giaiThua(int a);
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-int giaiThua(int a)
+double giaiThua(int a)
 {
     if(a <= 1) return 1;
     else return giaiThua(a - 1) * a;
