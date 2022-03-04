@@ -12,7 +12,7 @@ double mySin(double x)
 {
     return x-(1/6)*x*x*x+(1/120)*x*x*x*x*x;
 }
-double myCos(double x);
+double myCos(double x)
 {
     return 1-(1/2)*x*x+(1/24)*x*x*x*x;
 }
