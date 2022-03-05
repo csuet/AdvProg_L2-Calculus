@@ -45,7 +45,8 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    int n, sinx = 0;
+    int n;
+    double sinx = 0;
     for (int i = 0; i < 100; i++)
     {
         if (i % 2 == 0) n = 1;
