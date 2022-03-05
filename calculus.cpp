@@ -77,5 +77,6 @@ double mySqrt(double x) {
         Sum=oldSum-(oldSum*oldSum-x)/(2*oldSum);
 
     }
+    Sum=sqrt(x);
     return Sum;
 }
