@@ -20,7 +20,8 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    float cos = 1-x*x/2+pow(x,4)/24-pow(x,6)/720+pow(x,8)/40320;
+    return cos;
 }
 
 /***
@@ -31,7 +32,8 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    float sin = x-pow(x,3)/6+pow(x,5)/120-pow(x,7)/5040+pow(x,9)/362880;
+    return sin;
 }
 
 
@@ -47,6 +49,5 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    return sqrt(x);
 }
