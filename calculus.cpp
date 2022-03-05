@@ -29,6 +29,7 @@ double myCos(double x)
     for (int i = 0; i < 100; i++) {
         cos += pow(-1, i) * pow (x, i * 2) / factorial(i * 2);
     }
+    return cos;
 }
 
 /***
