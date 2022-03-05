@@ -18,18 +18,9 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-int n;
 double myCos(double x) 
 {
-    int gt=1;
-    float cos=0;
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            gt=gt*i*pow(-1,j);
-        }
-        cos+=pow(x,2*i)/gt;
-    }
-
+    float cos = 1-x*x/2+pow(x,4)/24-pow(x,6)/720+pow(x,8)/40320;
     return cos;
 }
 
@@ -41,15 +32,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    int gt=1;
-    float sin=0;
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            gt=gt*i*pow(-1,j);
-        }
-        sin+=pow(x,2*i+1)/gt;
-    }
-
+    float sin = x-pow(x,3)/6+pow(x,5)/120-pow(x,7)/5040+pow(x,9)/362880;
     return sin;
 }
 
