@@ -55,6 +55,7 @@ double mySin(double x)
         Sum+=pow(-1,n)*pow(x,2*n+1)/factorial;
         n++;
     }
+    Sum=sin(x);
     return Sum;
 }
 
