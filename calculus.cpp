@@ -18,7 +18,8 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x,int n) 
+int n;
+double myCos(double x) 
 {
     int gt=1;
     float cos=0;
@@ -38,7 +39,7 @@ double myCos(double x,int n)
     Returns:
         double: sine of x
 ***/
-double mySin(double x,int n)
+double mySin(double x)
 {
     int gt=1;
     float sin=0;
