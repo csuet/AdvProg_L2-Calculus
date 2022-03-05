@@ -20,7 +20,22 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    const double limit = 0.000000000000000001;
+    double cosx = 1.0, preCosx = 0.0,element = 1.0;
+    int i = 1;
+    while(x<0 || x> 2*M_PI){
+        x -= 2*M_PI;
+    }
+
+    do{
+        preCosx = cosx;
+        element *= (-x*x)/((2*i)*(2*i-1));
+        cosx += element;
+        i++;
+    }
+    while(fabs(element) >= limit);
+
+    return cosx;
 }
 
 /***
@@ -31,7 +46,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return sqrt(1-myCos(x)*myCos(x));
 }
 
 
@@ -46,7 +61,13 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
     
-    return 0;
+    //baybylon algorithm
+    double preS,S = 10.0;
+    do{
+        preS = S;
+        S = (preS + x/preS)/2;
+    }while(fabs(S-preS) >= 0.0001);
+    
+    return S;
 }
