@@ -91,7 +91,7 @@ double mySqrt(double x) {
         exit(1);
     }
     double sqrt=1;
-    while(abs(sqrt*sqrt-x)/x>=0.0001) {
+    while(abs((sqrt*sqrt-x)/x)>=0.0001) {
         sqrt=(x/sqrt-sqrt)/2+sqrt;
     }
     
