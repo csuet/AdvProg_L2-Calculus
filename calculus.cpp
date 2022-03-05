@@ -54,7 +54,7 @@ double mySin(double x)
     while(x>PI){
         x-=2*PI;
     }
-    while(x<-Pi){
+    while(x<-PI){
         x+=2*PI;
     }
     double sum=x, old_sum=0;
