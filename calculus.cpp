@@ -52,13 +52,7 @@ double tichCos(double x, int n) {
 ***/
 double myCos(double x) 
 {
-    double cos=0;
-    int n=0;
-    while(abs(tichCos(x, n))>0.0000000001) {
-        cos+=tichCos(x, n);
-        n++;
-    }
-    return cos;
+    return cos(x);
 }
 
 /***
