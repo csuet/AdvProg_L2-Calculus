@@ -31,7 +31,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sdt::sin(x);
+    return std::sin(x);
 }
 
 
