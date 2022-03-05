@@ -20,7 +20,21 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    x -= 2*M_PI*((int)(x/(2*M_PI)));
+    double res = 1;
+    double first = 1;
+    int i = 1;
+    while (i != 100) {
+        first *= (x/i);
+        if (i % 2 == 1) {
+            i++;
+            continue;
+        }
+        if (i % 4 == 0) res += first;
+        else res -= first;
+        i++;
+    }
+    return res;
 }
 
 /***
@@ -31,7 +45,21 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    x -= 2*M_PI*((int)(x/(2*M_PI)));
+    double res = 0;
+    double first = 1;
+    int i = 1;
+    while (i != 100) {
+        first *= (x/i);
+        if (i % 2 == 0) {
+            i++;
+            continue;
+        }
+        if (i % 4 == 1) res += first;
+        else res -= first;
+        i++;
+    }
+    return res;
 }
 
 
@@ -46,7 +74,11 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    double res = x/2;
+    int i = 1;
+    while (i != 20) {
+        res = (res + x/res)/2;
+        i++;
+    }
+    return res;
 }
