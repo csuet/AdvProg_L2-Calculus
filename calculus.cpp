@@ -28,7 +28,7 @@ double myCos(double x)
         temp = temp * x * x / (i * (i - 1));
         temp *= -1;
         cosine += temp;
-    } while (abs(temp) >= 0.001);
+    } while (abs(temp) >= 0.0001);
 
     return cosine;
 
