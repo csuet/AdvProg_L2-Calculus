@@ -54,7 +54,7 @@ double myCos(double x)
 {
     double cos=0;
     int n=0;
-    while(abs(tichCos(x, n))>0.0001) {
+    while(abs(tichCos(x, n))>0.00001) {
         cos+=tichCos(x, n);
         n++;
     }
@@ -71,7 +71,7 @@ double mySin(double x)
 {
     int n=0;
     double sin=0;
-    while(abs(tichSin(x, n))>0.0001) {
+    while(abs(tichSin(x, n))>0.00001) {
         sin+=tichSin(x, n);
         n++;
     }
