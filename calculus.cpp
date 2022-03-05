@@ -28,10 +28,9 @@ double myCos(double x)
         temp = temp * x * x / (i * (i - 1));
         temp *= -1;
         cosine += temp;
-    } while (abs(temp) >= 0.0001);
+    } while (temp >= 0.001 || temp <= -0.001);
 
     return cosine;
-
 }
 
 /***
@@ -50,7 +49,7 @@ double mySin(double x)
         temp = temp * x * x / (i * (i - 1));
         temp *= -1;
         sin += temp;
-    } while (abs(temp) >= 0.001);
+    } while (temp >= 0.001 || temp <= -0.001);
     return sin;
 }
 
@@ -71,6 +70,6 @@ double mySqrt(double x) {
     do {
         kq = kq - temp;
         temp = (kq * kq - x) / (2 * kq);
-    } while (abs(temp) >= 0.001);
+    } while (temp >= 0.001 || temp <= -0.001);
     return kq;
 }
