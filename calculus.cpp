@@ -18,9 +18,23 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double myCos(double x)
 {
-    return 0.0;
+	//return cos(x);
+
+	//Maclaurint series
+	double m_prev=2, m=1, factorial=1, expo=1;
+	int i=1;
+	const double Epsilon = 0.00001;
+	while(m-m_prev > Epsilon || m-m_prev < -Epsilon)
+    {
+		m_prev=m;
+		factorial*=4*i*i-2*i;
+		expo*=x*x;
+		m+=(i%2==0?1:-1)*expo/factorial;
+		i++;
+	}
+	return m;
 }
 
 /***
@@ -31,7 +45,21 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    //return sin(x);
+
+	//Maclaurint series
+	double m_prev=x-1, m=x, factorial=1, expo=x;
+	int i=1;
+	const double Epsilon = 0.00001;
+	while(m-m_prev > Epsilon || m-m_prev < -Epsilon)
+    {
+		m_prev=m;
+		factorial*=4*i*i+2*i;
+		expo*=x*x;
+		m+=(i%2==0?1:-1)*expo/factorial;
+		i++;
+	}
+	return m;
 }
 
 
@@ -46,7 +74,15 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+	//return sqrt(x);
 
-    
-    return 0;
+	//Babylonian method
+	double b_prev=x, b=1;
+	const double Epsilon = 0.00001;
+	while(b-b_prev > Epsilon || b-b_prev < -Epsilon)
+    {
+		b_prev = b;
+		b = (b + x/b) /2;
+	}
+    return b;
 }
