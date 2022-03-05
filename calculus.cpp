@@ -50,7 +50,7 @@ double mySin(double x)
     {
         if (i % 2 == 0) n = 1;
         else n = -1;
-        sinx += n*pow(x,2*n+1)/factorial(2*n+1);
+        sinx += n*pow(x,2*i+1)/factorial(2*i+1);
     }
     return sinx;
 }
