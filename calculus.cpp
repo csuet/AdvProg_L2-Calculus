@@ -44,13 +44,12 @@ double mySin(double x)
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
+        return -x;
         exit(1);
-    }
-	if(x>0){
-		return x;
-	}else{
-		return -x;
+    }else{
+    	return x;
 	}
+	
     
     return 0;
 }
