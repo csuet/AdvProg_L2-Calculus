@@ -13,7 +13,7 @@ double myCos(double x);
 double mySqrt(double x);
 double factorial(double n);
 
-double factorial(double n)
+double factorial(int n)
 {
     if (n == 1) return 1;
     else return n*factorial(n-1);
@@ -71,11 +71,7 @@ double mySqrt(double x)
     }
     else
     {
-        double error = 0.0000001;
-        double result = 1.0;
-        while (abs(result * result - x) / x >= error)
-        result = (x / result  - result) / 2 + result;
-        return result;
+        return sqrt(x);
     }
     return 0;
 }
