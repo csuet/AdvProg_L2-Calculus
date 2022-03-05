@@ -11,7 +11,7 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-
+const double PI = 3.14159265359;
 /***
     Args:
         x (double): a number
@@ -21,9 +21,12 @@ double mySqrt(double x);
 double myCos(double x) 
 {   
     
-    const double PI = 3.14159265359;
-    while(x>PI){
+    
+    while(x>PI){ 
         x-=2*PI;
+    }
+    while(x<-PI){
+        x+=2*PI;
     }
     double sum=1, old_sum=0;
     long long factorial=1;
@@ -50,6 +53,9 @@ double mySin(double x)
     const double PI = 3.14159265359;
     while(x>PI){
         x-=2*PI;
+    }
+    while(x<-Pi){
+        x+=2*PI;
     }
     double sum=x, old_sum=0;
     long long factorial=1;
