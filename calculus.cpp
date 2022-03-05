@@ -63,6 +63,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
+    x -= 2*M_PI*((int)(x/(2*M_PI)));
     int n=0;
     double sin=0;
     while(abs(tichSin(x, n))>0.0000000001) {
