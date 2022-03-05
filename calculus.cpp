@@ -32,7 +32,7 @@ double myCos(double x)
     {
         if (i % 2 == 0) n = 1;
         else n = -1;
-        cosx += n*pow(x,2*i)/factorial(2*i);
+        cosx += 1.0*n*pow(x,2*i)/factorial(2*i);
     }
     return cosx;
 }
@@ -51,7 +51,7 @@ double mySin(double x)
     {
         if (i % 2 == 0) n = 1;
         else n = -1;
-        sinx += n*pow(x,2*i+1)/factorial(2*i+1);
+        sinx += 1.0*n*pow(x,2*i+1)/factorial(2*i+1);
     }
     return sinx;
 }
