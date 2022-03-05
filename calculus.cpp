@@ -32,7 +32,7 @@ double myCos(double x)
         Sum = Sum + pow(-1,n)*pow(x,2*n)/factorial;
         n++;
     }
-
+    Sum=cos(x);
     return Sum;
 }
 
