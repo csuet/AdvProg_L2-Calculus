@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <iomanip>
 
 using std::string;
 using std::cout;
@@ -20,7 +21,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    return cos(3.14159265 * x / 180);
 }
 
 /***
@@ -31,7 +32,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return sin(3.14159265 * x / 180);
 }
 
 
@@ -47,6 +48,5 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    return sqrt(x);
 }
