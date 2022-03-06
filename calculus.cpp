@@ -53,19 +53,20 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
+double myCos(double x)
+{
+    return sqrt(1-mySin(x)*mySin(x));
+    
+}
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
     else {
-        double result = 1.0f;
-    while (fabs(result * result -x) / x >= 0.0001f)
+        double result = 1.0;
+    while (fabs(result * result -x) / x >= 0.0001)
         result = (x / result  - result) / 2 + result;
     return result;
     }
-}
-double myCos(double x)
-{
-    return mySqrt(1-mySin(x)*mySin(x));
 }
