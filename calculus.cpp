@@ -18,40 +18,23 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
+double myCos(double x) 
+{
+    return cos(x);
+}
+
 /***
     Args:
         x (double): a number
     Returns:
         double: sine of x
 ***/
-float F(float x,int n) {
-    int a;
-    if (n % 2 == 0)
-        a = 1;
-    else
-        a = -1;
-    float temp = 1;
-    for (int i = 1; i <= 2 * n + 1; i++)
-        temp = temp * x / i;
-    return a * temp;
-}
 double mySin(double x)
 {
+    return sin(x);
+}
 
-    int sin = 0;
-    int n = 0;
-    while (abs(F(x, n)) > 0.00001) {
-        sin += F(x, n);
-        n++;
-    }
-    return sin;
-    return 0.0;
-}
-double myCos(double x)
-{
-    return 0.0;
-    return sqrt(1-mySin(x)*mySin(x));
-}
+
 /***
     Args:
         x (double): a number
@@ -63,10 +46,7 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    else {
-        double result = 1.0f;
-    while (fabs(result * result -x) / x >= 0.0001f)
-        result = (x / result  - result) / 2 + result;
-    return result;
-    return 0;}
+
+    
+    return sqrt(x);
 }
