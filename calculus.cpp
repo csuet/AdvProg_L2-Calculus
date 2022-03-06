@@ -43,7 +43,7 @@ double myCos(double x)
         sin += F(x, n);
         n++;
     }
-    return sqrt(1-mySin(x)*mySin(x));
+    return sqrt(1-sin*sin);
 }
 double mySin(double x)
 {
