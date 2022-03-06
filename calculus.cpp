@@ -18,17 +18,6 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-float F(float x,int n) {
-    int a;
-    if (n % 2 == 0)
-        a = 1;
-    else
-        a = -1;
-    float temp = 1;
-    for (int i = 1; i <= 2 * n + 1; i++)
-        temp = temp * x / i;
-    return a * temp;
-}
 double myCos(double x)
 {
     return 0.0;
@@ -41,6 +30,17 @@ double myCos(double x)
     Returns:
         double: sine of x
 ***/
+float F(float x,int n) {
+    int a;
+    if (n % 2 == 0)
+        a = 1;
+    else
+        a = -1;
+    float temp = 1;
+    for (int i = 1; i <= 2 * n + 1; i++)
+        temp = temp * x / i;
+    return a * temp;
+}
 double mySin(double x)
 {
 
