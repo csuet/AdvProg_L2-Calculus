@@ -12,47 +12,36 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
+double factorial(int n) {
+    if (n < 2) return 1;
+    return n * factorial(n - 1);
+}
 /***
     Args:
         x (double): a number
     Returns:
         double: cosine of x
 ***/
+double myCos(double x)
+{
+    double cos = 0;
+    for (int i = 0; i < 100; i++) {
+        sin += pow(-1, i) * pow (x, i * 2) * 1.0 / factorial(i * 2);
+    }
+    return cos;
+}
 /***
     Args:
         x (double): a number
     Returns:
         double: sine of x
 ***/
-float F(float x,int n) {
-    int a;
-    if (n % 2 == 0)
-        a = 1;
-    else
-        a = -1;
-    float temp = 1;
-    for (int i = 1; i <= 2 * n + 1; i++)
-        temp = temp * x / i;
-    return a * temp;
-}
-double myCos(double x)
-{
-    int sin = 0;
-    int n = 0;
-    while (abs(F(x, n)) > 0.00001) {
-        sin += F(x, n);
-        n++;
-    }
-    return sqrt(1-sin*sin);
-}
+
 double mySin(double x)
 {
-
-    int sin = 0;
-    int n = 0;
-    while (abs(F(x, n)) > 0.00001) {
-        sin += F(x, n);
-        n++;
+    double sin = 0;
+    for (int i = 0; i < 100; i++) {
+        ans += pow(-1, i) * pow (x, i * 2 + 1) * 1.0 / factorial(i * 2 + 1);
     }
     return sin;
 }
