@@ -6,32 +6,34 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
-using namespace std;
+
 
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-const double epsilon=0.00001;
-const double pi = 3.14159265359;
-
+/***
+    Args:
+        x (double): a number
+    Returns:
+        double: cosine of x
+***/
 double myCos(double x) 
 {
-    double cosx,temp;
-	int i=0;
-	x=abs(x);
-	while(x>2*pi) x-=2*pi;
-	cosx=1;
-	do{
-		i++;
-		temp=1;
-		for(int j=1;j<=2*i;j++){
-			temp=temp*x/j;
+    	double cosx=1;
+	int n=1;	
+	double temp=1;
+	while(temp>0.0001 || temp<-0.0001){
+		temp =1;
+		for(int i=1;i<=2*n;i++){
+			temp*=(x/(i));
 		}
-		if(i%2==0) cosx=cosx+temp;
-		else cosx=cosx-temp;
-	} while(temp>0.0001||temp<-0.0001);
+		if(n%2==0) cosx+=temp;
+		else cosx-=temp;
+		n++;
+	}
 	return cosx;
+
 }
 
 /***
@@ -42,30 +44,19 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double sinx,temp;
-	int i=0;
-	bool check=true;
-	if(x<0) {
-	x=abs(x);
-	check=false;}
-
-while(x>2*pi){
-    x=x-2*pi;
-  }
-	sinx=x;	
-	do{
-		i++;
-		temp=1;
-
-		for(int j=1;j<=2*i+1;j++) {
-
-		temp=temp*x/j;
+   	double sinx=x;
+	int n=1;	
+	double temp=1;
+	while(temp>0.0001 || temp<-0.0001){
+		temp =1;
+		for(int i=1;i<=2*n+1;i++){
+			temp*=(x/(i));
+		}
+		if(n%2==0) sinx+=temp;
+		else sinx-=temp;
+		n++;
 	}
-		if(i%2==0) sinx=sinx+ temp;
-		else sinx=sinx-temp;
-	}while(temp>0.0001||temp<-0.0001);
-	if(check)return sinx;
-	else  return -sinx;
+	return sinx;
 }
 
 
@@ -75,18 +66,28 @@ while(x>2*pi){
     Returns:
         double: square root of x
 ***/
-double mySqrt(double x){
-	double result=1;
-	if(x<0) {
-	cout<<"Invalid argument"<<endl;
-	exit(1);
-	}
-	else{
-		while(abs((result*result-x)/x)>=epsilon){
-			result=(x/result-result)/2+result;
+double mySqrt(double x) {
+    if (x < 0) {
+        cout << "Invalid argument" << endl;
+        exit(1);
+    }
+    double n;
+	for(int i=0;;i++){
+		n=pow(10,2*i);
+		if(x/n<1){
+			n=pow(10,i-1);
+			break;
 		}
-		return result;
 	}
+	double x0,x1=0;
+	if(x/n<10) x0=2*n;
+	else x0=6*n;
+	while(true){
+		x1=0.5*(x0+x/x0);
+		if(x1==x0) break;
+		x0=x1;
+	}
+    
+    return x0;
 }
-
 
