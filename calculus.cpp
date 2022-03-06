@@ -87,7 +87,7 @@ double mySin(double x)
 ***/
 double mySqrt(double x) {
     double sqrt=1;
-    while(abs(sqrt*sqrt-x)/x>=0.0001) {
+    while(fabs(sqrt*sqrt-x)/x>=0.0001) {
         sqrt=(x/sqrt-sqrt)/2+sqrt;
     }
     return sqrt;
