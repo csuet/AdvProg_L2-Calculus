@@ -5,7 +5,6 @@
 using std::cout;
 using std::endl;
 using std::pow;
-
 using std::string;
 
 const double EPSILON = 0.00001;
