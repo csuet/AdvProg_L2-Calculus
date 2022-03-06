@@ -35,6 +35,16 @@ float F(float x,int n) {
         temp = temp * x / i;
     return a * temp;
 }
+double myCos(double x)
+{
+    int sin = 0;
+    int n = 0;
+    while (abs(F(x, n)) > 0.00001) {
+        sin += F(x, n);
+        n++;
+    }
+    return sqrt(1-mySin(x)*mySin(x));
+}
 double mySin(double x)
 {
 
@@ -53,11 +63,6 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
-double myCos(double x)
-{
-    return sqrt(1-mySin(x)*mySin(x));
-    
-}
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
