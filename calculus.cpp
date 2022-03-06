@@ -2,11 +2,10 @@
 #include <string>
 #include <cmath>
 
-using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
-
+using std::string;
 
 double mySin(double x);
 double myCos(double x);
@@ -18,9 +17,23 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+#define esp 1e-5
+double myCos(double x)
 {
-    return 0.0;
+    double tmp = 1;
+    int cnt = 1;
+    bool sign = 0;
+    double ans = 1, preAns = 0;
+    while (std::abs(ans - preAns) > esp)
+    {
+        tmp *= x * x;
+        tmp /= 1.0 * (cnt * (cnt + 1));
+        cnt += 2;
+        preAns = ans;
+        ans += ((sign == 0) ? -tmp : tmp);
+        sign ^= 1;
+    }
+    return ans;
 }
 
 /***
@@ -31,9 +44,21 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double tmp = x;
+    int cnt = 2;
+    bool sign = 0;
+    double ans = x, preAns = 0;
+    while (std::abs(ans - preAns) > esp)
+    {
+        tmp *= x * x;
+        tmp /= 1.0 * (cnt * (cnt + 1));
+        cnt += 2;
+        preAns = ans;
+        ans += ((sign == 0) ? -tmp : tmp);
+        sign ^= 1;
+    }
+    return ans;
 }
-
 
 /***
     Args:
@@ -41,12 +66,21 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
-double mySqrt(double x) {
-    if (x < 0) {
+double mySqrt(double x)
+{
+    if (x < 0)
+    {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    if(x == 0)
+        return 0;
+    double b = x / 10;
+    double ans = b, preAns = 0;
+    while(std::abs(ans - preAns) > esp)
+    {
+        preAns = ans;
+        ans = 0.5 * (ans + x / ans);
+    }
+    return ans;
 }
