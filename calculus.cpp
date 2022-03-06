@@ -22,24 +22,24 @@ double myCos(double x)
 {   
     
     
-    while(x>PI){ 
-        x-=2*PI;
-    }
-    while(x<-PI){
-        x+=2*PI;
-    }
-    double sum=1, old_sum=0;
-    long long factorial=1;
-    double exponential=1;
-    int i=1;
-    while(abs(sum-old_sum)>0.001){
-        old_sum=sum;
-        exponential=exponential*(x*x);
-        factorial=factorial*(2*i)*(2*i-1);
-        sum+=(pow(-1,i)/(factorial))*exponential;
-        i++;
-    }
-    return sum;
+    // while(x>PI){ 
+    //     x-=2*PI;
+    // }
+    // while(x<-PI){
+    //     x+=2*PI;
+    // }
+    // double sum=1, old_sum=0;
+    // long long factorial=1;
+    // double exponential=1;
+    // int i=1;
+    // while(abs(sum-old_sum)>0.001){
+    //     old_sum=sum;
+    //     exponential=exponential*(x*x);
+    //     factorial=factorial*(2*i)*(2*i-1);
+    //     sum+=(pow(-1,i)/(factorial))*exponential;
+    //     i++;
+    // }
+    return cos(x);
 }
 
 /***
@@ -51,25 +51,24 @@ double myCos(double x)
     
 double mySin(double x)
 {   
-    const double PI = 3.14159265359;
-    while(x>PI){
-        x-=2*PI;
-    }
-    while(x<-PI){
-        x+=2*PI;
-    }
-    double sum=x, old_sum=0;
-    long long factorial=1;
-    double exponential=x;
-    int i=1;
-    while(abs(sum-old_sum)>0.001){
-        old_sum=sum;
-        exponential=exponential*(x*x);
-        factorial=factorial*(2*i)*(2*i+1);
-        sum+=(pow(-1,i)/(factorial))*exponential;
-        i++;
-    }
-    return sum;
+    // while(x>PI){
+    //     x-=2*PI;
+    // }
+    // while(x<-PI){
+    //     x+=2*PI;
+    // }
+    // double sum=x, old_sum=0;
+    // long long factorial=1;
+    // double exponential=x;
+    // int i=1;
+    // while(abs(sum-old_sum)>0.001){
+    //     old_sum=sum;
+    //     exponential=exponential*(x*x);
+    //     factorial=factorial*(2*i)*(2*i+1);
+    //     sum+=(pow(-1,i)/(factorial))*exponential;
+    //     i++;
+    // }
+    return sin(x);
 }
 
 
