@@ -53,6 +53,5 @@ int main()
 {
     double a;
     std::cin>>a;
-    std::cout<<mySqrt(a);
-    (a);
+    std::cout<<mySin(a);
 }
