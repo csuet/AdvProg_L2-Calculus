@@ -32,7 +32,7 @@ double myCos(double x)
     long long factorial=1;
     double exponential=1;
     int i=1;
-    while(abs(sum1-old_sum1)>0.0000001){
+    while(abs(sum1-old_sum1)>0.000001){
         old_sum1=sum1;
         exponential=exponential*(x*x);
         factorial=factorial*(2*i)*(2*i-1);
@@ -61,7 +61,7 @@ double mySin(double x)
     long long factorial=1;
     double exponential=x;
     int i=1;
-    while(abs(sum2-old_sum2)>0.0000001){
+    while(abs(sum2-old_sum2)>0.000001){
         old_sum2=sum2;
         exponential=exponential*(x*x);
         factorial=factorial*(2*i)*(2*i+1);
@@ -85,7 +85,7 @@ double mySqrt(double x) {
         exit(1);
     }
     else {
-        while(abs(sum3-old_sum3)>0.0000001){
+        while(abs(sum3-old_sum3)>0.000001){
         old_sum3=sum3;
         sum3=(sum3+x/sum3)/2;
     }
