@@ -26,7 +26,7 @@ double myCos(double x)
         precos=cos;
         cos+=pow(-1,m)*pow(x,2*m)/factorial(2*m);
         m++;
-     } while (abs(precos-cos)>=0.0001);
+     } while (abs(precos-cos)>=0.0000001);
      return cos;
 }
 
@@ -37,7 +37,7 @@ double mySin(double x)
         presin=sin;
         sin+=pow(-1,m)*pow(x,2*m+1)/factorial(2*m+1);
         m++;
-    } while (abs(presin-sin)>=0.0001);
+    } while (abs(presin-sin)>=0.0000001);
 }
 
 double mySqrt(double x) {
