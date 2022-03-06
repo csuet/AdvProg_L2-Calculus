@@ -31,6 +31,7 @@ float F(float x,int n) {
 }
 double myCos(double x) 
 {
+    return 0.0;
     return sqrt(1-mySin(x)*mySin(x));
 }
 
@@ -50,7 +51,7 @@ double mySin(double x)
         n++;
     }
     return sin;
-    
+    return 0.0;
 }
 
 
@@ -70,5 +71,5 @@ double mySqrt(double x) {
     while (fabs(result * result -x) / x >= 0.0001f)
         result = (x / result  - result) / 2 + result;
     return result;
-
+    return 0;
 }
