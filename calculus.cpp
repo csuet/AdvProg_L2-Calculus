@@ -38,6 +38,7 @@ double mySin(double x)
         sin+=pow(-1,m)*pow(x,2*m+1)/factorial(2*m+1);
         m++;
     } while (abs(presin-sin)>=0.0000001);
+    return sin;
 }
 
 double mySqrt(double x) {
