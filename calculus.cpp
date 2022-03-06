@@ -11,6 +11,14 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
+int factorial(int x);
+
+const double e = 0.0001;
+
+int factorial(int x){
+    if (x == 0 || x == 1) return 1;
+    else return x*factorial(x-1);
+}
 
 /***
     Args:
@@ -20,7 +28,18 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double E = 1, cosx = 0;
+    int n = 0;
+    while(E > e){
+        E = pow(x, 2*n) / factorial(2*n);
+        if(n % 2 == 0){
+            cosx += E;
+        }else{
+            cosx -= E;
+        }
+        n++;
+    }
+    return cosx;
 }
 
 /***
@@ -31,7 +50,17 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double sinx = 0, E = 1;
+    int n = 0;
+    while(E > e){
+        E = pow(x, 2*n+1) / factorial(2*n+1);
+        if(n % 2 == 0){
+            sinx += E;
+        }else{
+            sinx -= E;
+        }
+    }
+    return sinx;
 }
 
 
@@ -46,7 +75,14 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    else{
+        double result = 1;
+        if (x == 0) result = 0;
+        else{
+        	while(fabs(result*result - x) / x > e){
+            result = (x/result - result)/2 + result;
+            }
+		}
+        return result;
+    }
 }
