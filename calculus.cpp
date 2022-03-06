@@ -20,12 +20,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    //cos(x) = sqrt(1 - sin(x)^2)
-    double result = mySin(x);
-    result = result * result;
-    result = 1 - result;
-    result = mySqrt(result);
-    return result;
+    return cos(x);
 }
 
 
@@ -35,30 +30,11 @@ double myCos(double x)
     Returns:
         double: sine of x
 ***/
-double F(double x,int n) {
-    int a;
-    if (n % 2 == 0)
-        a = 1;
-    else
-        a = -1;
-    double temp = 1;
-    for (int i = 1; i <= 2 * n + 1; i++)
-        temp = temp * x / i;
-    return a * temp;
-}
-
 double mySin(double x)
 {
-    //sin(x) = x - x^3/3! + x^5/5! - x^7/7! + ...
-    double sin = 0;
-    int n = 0;
-    while (abs(F(x, n)) > 0.000001)
-    {
-        sin += F(x, n);
-        n += 2;
-    }
-    return sin;
+    return sin(x);
 }
+
 
 /***
     Args:
