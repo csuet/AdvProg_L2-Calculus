@@ -20,10 +20,14 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    //cos(x) = sin(x + pi/2)
-    const double PI = 3.14159265358979323846;
-    return mySin(x + PI/2);
+    //cos(x) = sqrt(1 - sin(x)^2)
+    double result = mySin(x);
+    result = result * result;
+    result = 1 - result;
+    result = mySqrt(result);
+    return result;
 }
+
 
 /***
     Args:
@@ -31,21 +35,30 @@ double myCos(double x)
     Returns:
         double: sine of x
 ***/
+double F(double x,int n) {
+    int a;
+    if (n % 2 == 0)
+        a = 1;
+    else
+        a = -1;
+    double temp = 1;
+    for (int i = 1; i <= 2 * n + 1; i++)
+        temp = temp * x / i;
+    return a * temp;
+}
+
 double mySin(double x)
 {
     //sin(x) = x - x^3/3! + x^5/5! - x^7/7! + ...
-    double result = x;
-    double term = x;
-    int n = 1;
-    while (abs(term) > 0.000001)
+    double sin = 0;
+    int n = 0;
+    while (abs(F(x, n)) > 0.000001)
     {
-        term *= -1 * x * x * x / (2 * n * (2 * n + 1) * (2 * n + 2));
-        result += term;
+        sin += F(x, n);
         n += 2;
     }
-    return result;
+    return sin;
 }
-
 
 /***
     Args:
@@ -58,15 +71,8 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    // sqrt(x) = x / 2 * (x / 2 + 1)
-    double result = x / 2;
-    double term = x / 2;
-    int n = 0;
-    while (abs(term) > 0.000001)
-    {
-        term = result;
-        result = (result + x / result) / 2;
-        n++;
-    }
+    double result = 1;
+    while (fabs(result * result - x) / x >= 0.000001)
+        result = (x / result  - result) / 2 + result;
     return result;
 }
