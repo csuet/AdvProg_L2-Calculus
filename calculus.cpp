@@ -26,7 +26,7 @@ double myCos(double x)
 {
     double cos = 0;
     for (int i = 0; i < 100; i++) {
-        sin += pow(-1, i) * pow (x, i * 2) * 1.0 / factorial(i * 2);
+        cos += pow(-1, i) * pow (x, i * 2) * 1.0 / factorial(i * 2);
     }
     return cos;
 }
@@ -41,7 +41,7 @@ double mySin(double x)
 {
     double sin = 0;
     for (int i = 0; i < 100; i++) {
-        ans += pow(-1, i) * pow (x, i * 2 + 1) * 1.0 / factorial(i * 2 + 1);
+        sin += pow(-1, i) * pow (x, i * 2 + 1) * 1.0 / factorial(i * 2 + 1);
     }
     return sin;
 }
