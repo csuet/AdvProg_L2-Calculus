@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-const double EPSILON = 0.001;
+const double EPSILON = 0.000001;
 
 double mySin(double x);
 double myCos(double x);
@@ -79,6 +79,6 @@ double mySqrt(double x) {
     do{
         x_cu = x_moi;
         x_moi = x_cu - (x_cu * x_cu - x)/(2 * x_cu);
-    }while(abs(x_cu - x_moi) > 0.00001);
+    }while(x_cu - x_moi > EPSILON or x_cu - x_moi < -EPSILON);
     return x_moi;
 }
