@@ -50,13 +50,15 @@ double mySin(double x)
     double sin = 0;
     double x_n;
     double giaithua = 1;
+    double x_thaythe = x;
     do
     {
-        x_n = pow(-1,n)*double(pow(x,2*n+1))/giaithua;
+        int a = (n%2 == 0) ? 1 : -1;
+        x_n = a * x_thaythe/giaithua;
         sin = sin + x_n;
         n++;
         giaithua = giaithua*2*n*(2*n + 1);
-    } while (x_n > EPSILON || x_n < EPSILON);
+    } while (x_n > EPSILON || x_n < -EPSILON);
     return sin;
 }
 
