@@ -72,7 +72,6 @@ double mySqrt(double x) {
     do{
         x_cu = x_moi;
         x_moi = x_cu - (x_cu * x_cu - x)/(2 * x_cu);
-        cout << x_cu << " " << x_moi << endl;
     }while(abs(x_cu - x_moi) > 0.0000001);
     return x_moi;
 }
