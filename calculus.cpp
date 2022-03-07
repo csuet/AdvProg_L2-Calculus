@@ -37,6 +37,7 @@ double myCos(double x)
         n = n + 2;
         count++;
     }
+    
     return cosx;
 }
 
@@ -73,9 +74,10 @@ double mySqrt(double x) {
     }
     else {
         double result = 1.0;
-        while (abs((result*result - x)/(2*result) > 0.0000001)
+        while (abs((result*result - x)/(2*result) > 0.0000001))
         {
             result = result - (result*result - x)/(2*result);
         }
         return result;
+    }
 }
