@@ -47,6 +47,16 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return sqrt(x);
+    if (x == 0) return 0;
+    double t = 1;
+    double eps = 1e-9;
+    while (true) {
+        double inv = x / t;
+        double next = (t + inv) / 2;
+        // std::cout << "t: " << t << ", inv: " << inv << ", next: " << next << std::endl;
+        t = next;
+        // std::cout << "inv-t: " << inv-t << ", t-inv:" << t-inv << std::endl;
+        if (inv - t < eps && t - inv < eps) break;
+    }
+    return t;
 }
