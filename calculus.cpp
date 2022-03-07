@@ -85,7 +85,7 @@ double mySqrt(double x) {
             guess[i]=(guess[i-1]+(x/guess[i-1]))/2;
             sqrt=guess[i];
             i++;
-        }while( guess[i]!=guess[i-1] && i<100);
+        }while(guess[i]!=guess[i-1] && i<100);
         return sqrt;
     }
     
