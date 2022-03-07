@@ -15,17 +15,13 @@ double mySqrt(double x);
 
 double myCos(double x) 
 {
-    double myCos;
-    myCos=cos(x);
-    return myCos;
+    return cos(x);
 }
 
 
 double mySin(double x)
 {
-    double mySin;
-    my=cos(x);
-    return myCos;
+    return sin(x);
 }
 
 double mySqrt(double x) {
@@ -35,5 +31,5 @@ double mySqrt(double x) {
     }
 
     
-    return 0;
+    return sqrt(x);
 }
