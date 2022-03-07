@@ -54,7 +54,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sin(x);
+   return myCos(3.14159265359/2-x)
 }
 
 
@@ -69,8 +69,12 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
+    double temp=1.1;
+    
+for(int i=1;i<100;i++){
+    temp=(temp+x/temp)/2.0;
+}
 
     
-    return sqrt(x);
+    return temp;
 }
