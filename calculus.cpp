@@ -18,9 +18,21 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double factorial(int n) {
+    if(n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+
+double myCos(double x)
 {
-    return cos(x);
+    int i = 1;
+    double sum = 1;
+    do {
+        sum += (pow(-1, i) * pow(x, 2 * i) / factorial(i * 2));
+
+        ++i;
+    } while (i < 100);
+    return sum;
 }
 
 /***
@@ -31,7 +43,14 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sin(x);
+    int i = 0;
+    double sum = 0;
+    while (i < 100) {
+        sum += (pow(-1, i) * pow(x, 2 * i + 1) / factorial(i * 2 + 1));
+
+        ++i;
+    }
+    return sum;
 }
 
 
@@ -41,12 +60,21 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
+double hesotu(int n) {
+    if (n == 0) return 1;
+    if (n == 1) return 0.5;
+    return (1.5 - n) * hesotu(n - 1);
+}
+
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return sqrt(x);
+    double y = x - 1;
+    double sum = 0;
+    for (int i = 0; i <= 100; ++i) {
+        sum += pow(y, i) * hesotu(i) / factorial(i);
+    }
+    return sum;
 }
