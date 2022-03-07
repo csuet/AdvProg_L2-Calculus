@@ -15,7 +15,7 @@ int factorial(int x);
 
 const double e = 0.00001;
 
-double factorial(double x){
+double factorial(int x){
     if (x == 0 || x == 1) return 1;
     else return x*factorial(x-1);
 }
