@@ -56,6 +56,7 @@ double mySin(double x)
         int a = (n%2 == 0) ? 1 : -1;
         x_n = a * x_thaythe/giaithua;
         sin = sin + x_n;
+        x_thaythe = x_thaythe * x * x;
         n++;
         giaithua = giaithua*2*n*(2*n + 1);
     } while (x_n > EPSILON || x_n < -EPSILON);
