@@ -11,7 +11,7 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-int factorial(int x);
+double factorial(int x);
 
 const double e = 0.00001;
 
