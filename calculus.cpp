@@ -20,7 +20,7 @@ double mySqrt(double x);
 ***/
 
 double fac(double n){
-    if (n==1)
+    if (n==0)
         return 1;
     return n*fac(n-1);
 }
