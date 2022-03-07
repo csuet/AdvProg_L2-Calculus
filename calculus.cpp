@@ -70,7 +70,7 @@ double mySqrt(double x) {
     }
     double xBackUp = x;
     std::stringstream ss;
-    ss << x;
+    ss << x; 
     string xDigits = ss.str();
     double high=0, low=0;
     for (double i=xDigits.size()-1; i>=-2; i--){
