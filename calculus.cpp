@@ -20,7 +20,16 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    if (x < 0) x = -x; // cos(x) = cos(-x)
+    x = x - floor(x / (2 * M_PI)) * 2 * M_PI; // x = x - 2*pi*floor(x/(2*pi))
+    double term = 1;
+    double cosx = 0;
+    double eps = 1e-9;
+    for (int n = 0; term >= eps || -term >= eps; n += 2) {
+        cosx += term;
+        term = -term * x * x / (n+1) / (n+2);
+    }
+    return cosx;
 }
 
 /***
@@ -31,7 +40,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return myCos(M_PI/2-x);
 }
 
 
@@ -47,6 +56,16 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    if (x == 0) return 0;
+    double t = 1;
+    double eps = 1e-9;
+    while (true) {
+        double inv = x / t;
+        double next = (t + inv) / 2;
+        // std::cout << "t: " << t << ", inv: " << inv << ", next: " << next << std::endl;
+        t = next;
+        // std::cout << "inv-t: " << inv-t << ", t-inv:" << t-inv << std::endl;
+        if (inv - t < eps && t - inv < eps) break;
+    }
+    return t;
 }
