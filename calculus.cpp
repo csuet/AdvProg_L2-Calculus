@@ -46,7 +46,7 @@ double myCos(double x)
 {
     double cos = 0;
     int n = 0;
-    while (abs(f(x, n)) > 0.000001) {
+    while (abs(f(x, n)) > 0.0000001) {
         cos += f(x, n);
         n++;
     }
@@ -63,7 +63,7 @@ double mySin(double x)
 {
     double sin = 0;
     int n = 0;
-    while (abs(F(x, n)) > 0.000001) {
+    while (abs(F(x, n)) > 0.0000001) {
         sin += F(x, n);
         n++;
     }
@@ -82,7 +82,7 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    const double EPSILON = 0.000001;
+    const double EPSILON = 0.0000001;
     double result = 1.0;
     while (abs(result * result - x) / x >= EPSILON)
         result = (x / result  - result) / 2 + result;
