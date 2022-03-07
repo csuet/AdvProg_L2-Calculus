@@ -67,7 +67,7 @@ double mySqrt(double x) {
     } else {
         double a_0 = 1;
         double a = 1.0f;
-        while(abs(a*a - x) >= 1e-6){
+        while(fabs(a*a - x) >= 1e-6){
             a= 1.0/2 * (a_0+ x /a_0);
             a_0 = a;
         }
