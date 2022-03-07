@@ -20,7 +20,21 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double cosx = 1;
+    int n = 1;
+    double temp = 1;
+    while (temp > 0.0001 || temp < -0,0001)
+    {
+        temp = 1;
+        for(int i=1; i<=2*n; i++)
+        {
+            temp*= (x/(1));
+        }
+    if(n % 2 == 0) cosx += temp;
+    else cosx -= temp;
+    n++;
+    }
+    return cosx;
 }
 
 /***
@@ -31,7 +45,21 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double sinx = 1;
+    int n = 1;
+    double temp = 1;
+    while (temp > 0.0001 || temp < -0,0001)
+    {
+       temp = 1;
+        for(int i=1; i<=2*n+1; i++)
+        {
+            temp*= (x/(1));
+        }
+    if(n % 2 == 0) sinx += temp;
+    else sinx -= temp;
+    n++;
+    }
+    
 }
 
 
