@@ -40,18 +40,12 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double result = 0;
-    double k=1; int pos = 1;
-    while (abs((1/gt(k))*pow(x,k))>0.0001)
-    {
-        if (pos%2!=0)
-        {
-            result+=(1/gt(k))*pow(x,k);
-        }
-        else result-=(1/gt(k))*pow(x,k);
-        k+=2; pos++;
-    }
-    return result;
+    double sum = 0;
+ 	for ( int i = 0; i < 100; i++)
+ 	{
+ 		sum += (pow(-1, i) * pow(x, 2 * i + 1) / gt(i * 2 + 1));
+ 	}
+ 	return sum;
 }
 
 
