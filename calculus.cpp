@@ -7,6 +7,8 @@ using std::cout;
 using std::endl;
 using std::stod;
 
+const double PI_TEST = 3.14159265359;
+
 
 double mySin(double x);
 double myCos(double x);
@@ -29,11 +31,12 @@ int giaiThua(int n)
 
 double myCos(double x) 
 {
+    double xcos = (x*180)/PI_TEST;
     double cosx = 1.0;
     int n = 2, count = 1;
-    while (fabs((pow(x,n)/giaiThua(n)))>0.001)
+    while (fabs((pow(xcos,n)/giaiThua(n)))>0.001)
     {
-        cosx = 1 + (pow(-1,count))*(pow(x,n)/giaiThua(n));
+        cosx = 1 + (pow(-1,count))*(pow(xcos,n)/giaiThua(n));
         n = n + 2;
         count++;
     }
@@ -49,11 +52,12 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
+    double xsin = (x*180)/PI_TEST;
     double sinx = x;
     int n = 3, count = 1;
-    while (fabs((pow(x,n)/giaiThua(n)))>0.001)
+    while (fabs((pow(xsin,n)/giaiThua(n)))>0.001)
     {
-        sinx = 1 + (pow(-1,count))*(pow(x,n)/giaiThua(n));
+        sinx = 1 + (pow(-1,count))*(pow(xsin,n)/giaiThua(n));
         n = n + 2;
         count++;
     }
