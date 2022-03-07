@@ -6,7 +6,7 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
-const double epsilon = 0.000001;
+const double epsilon = 0.00000001;
 double factorial(double number)
 {
     if (number<=1)
@@ -28,15 +28,12 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    double result = 0;
-    int k = 0;
-    while (abs(((1/factorial(2*k))*pow(-1,k)*pow(x,2*k))) > epsilon)
-    {
-        result += ((1/factorial(2*k))*pow(-1,k)*pow(x,2*k));
-        k++;
-    }
-    
-    return result;
+    double sum = 0;
+	for (int i = 0; i < 100; i++)
+	{
+		sum += (pow(-1, i) * pow(x, 2 * i) / factorial(i * 2));
+	}
+	return sum;
 }
 
 /***
@@ -47,18 +44,12 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double result = 0;
-    int k=1; int pos = 1;
-    while (abs((1/factorial(k))*pow(x,k))>epsilon)
-    {
-        if (pos%2!=0)
-        {
-            result+=(1/factorial(k))*pow(x,k);
-        }
-        else result-=(1/factorial(k))*pow(x,k);
-        k+=2; pos++;
-    }
-    return result;
+      double sum = 0;
+	for (int i = 0; i < 100; i++)
+	{
+		sum += (pow(-1, i) * pow(x, 2 * i + 1) / factorial(i * 2 + 1));
+	}
+	return sum;
 }
 
 
@@ -69,18 +60,12 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-    double initialGuess = x/2;
-    if (x < 0) {
-        cout << "Invalid argument" << endl;
-        exit(1);
-    }
-    else
-    {
-        while (abs(( (initialGuess*initialGuess - x) / (2*initialGuess) )) > epsilon)
-        {
-            /* code */
-            initialGuess = initialGuess - ((initialGuess*initialGuess - x)/(2*initialGuess));
-        }
-    }
-    return initialGuess;
+    double previousNumber = x;
+    double afterNumber = x;
+	for (int i = 0; i < 100; i++)
+	{
+		afterNumber = 1.0 / 2 * (previousNumber + x / previousNumber);
+		previousNumber = afterNumber;
+	}
+	return afterNumber;     
 }
