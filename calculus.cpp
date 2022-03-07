@@ -12,41 +12,33 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: cosine of x
-***/
-double myCos(double x) 
-{
-    return 0.0;
-}
-
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: sine of x
-***/
 double mySin(double x)
 {
-    return 0.0;
+    double sinx, temp;
+    int i = 0;
+    sinx = temp = x;
+    while (temp > 0.00001 || temp < -0.00001)
+    {
+        i++;
+        temp = temp*x/(2*i+1)*x/(2*i);
+        if (i%2==0) sinx = sinx + temp;
+        else sinx = sinx - temp;
+    }
+    return sinx;
 }
 
+double myCos(double x)
+{
+    return mySin(1.5707963327-x);
+}
 
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: square root of x
-***/
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    double temp = 1.0f;
+    while (fabs(temp * temp - x) / x >= 0.00001)
+        temp = (x / temp  - temp) / 2 + temp;
+    return temp;
 }
