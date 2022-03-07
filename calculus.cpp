@@ -65,12 +65,10 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     } else {
-        double temp;
         double a_0 = 1;
         double a = 1.0f;
-        while(abs(a - temp) > 0){
+        while(abs(a*a - x) >= 1e-6){
             a= 1.0/2 * (a_0+ x /a_0);
-            temp = a_0;
             a_0 = a;
         }
     return a;
