@@ -9,29 +9,29 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-double F(double x, int n){
-	int a;
-	if(n%2==0) a = 1;
-	else a = -1;
-	double temp = 1;
-	for(int i=1;i<=2*n+1;i++){
-		temp = temp * x / i;
+double gt(int n){
+	if(n==1){
+		return 1;
+	}else{
+		return n*gt(n-1);
 	}
-	return a * temp;
-}
+} 
 
 double mySin(double x){
-	double sinX = 0;
-	int n = 0;
-	while(abs(F(x,n)) > 0.00001){
-		sinX = sinX + F(x,n);
-		n++;
-	}
-	return sinX;
+	int i = 0;
+	double s = 0; s1 = 0, s2 = 0;
+	
+	do{
+		s1 = s2;
+		s = s + (pow(-1,i)*pow(x,2*i+1))/(gt(2*i+1));
+		s2 = s;
+		i++;
+	}while(abs(s2-s1)>0.00001);
+	return s2;
 }
 
 double myCos(double x){
-	return sqrt(1-sinX*sinX);
+	return sqrt(1-(mySin(x)*mySin(x)));
 }
 
 double mySqrt(double x) {
