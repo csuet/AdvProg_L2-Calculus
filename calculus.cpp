@@ -23,7 +23,7 @@ double myCos(double x)
     int n = 0;
     double cos = 0;
     double x_n;
-    int giaithua = 1;
+    double giaithua = 1;
     do
     {
         x_n = pow(-1,n)*double(pow(x,2*n))/giaithua;
@@ -45,7 +45,7 @@ double mySin(double x)
     int n = 0;
     double sin = 0;
     double x_n;
-    int giaithua = 1;
+    double giaithua = 1;
     do
     {
         x_n = pow(-1,n)*double(pow(x,2*n+1))/giaithua;
