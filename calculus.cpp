@@ -26,7 +26,7 @@ double myCos(double x)
     double br = 0.000000001;
     for (int i = 0; fabs(addition) >= br;i+=2) {
         res += addition;
-        addition *= (x*x/(i+1)/(i+2));
+        addition *= -(x*x/(i+1)/(i+2));
     }
     return res;
 }
