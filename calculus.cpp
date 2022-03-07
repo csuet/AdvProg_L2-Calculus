@@ -67,19 +67,25 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double sqrt = 1;
-    for (double i=1; i<=6; i++){
-        double a = 1, b = 0, c = 0;
-        for (double j=0; j<i; j++){
-            double tmp = 1.0/2 - j;
-            a*=tmp;
+    double xBackUp = x;
+    stringstream ss;
+    ss << x;
+    string xDigits = ss.str();
+    double high=0, low=0;
+    for (double i=xDigits.size()-1; i>=-2; i--){
+        double sbc = pow(10, i); cout << "sbc" << sbc <<endl;
+        high = x, low = x - sbc; cout << "high" << high <<endl; cout << "low" << low <<endl;
+        while (low>=0){
+            if (high*high == xBackUp)
+                return high;
+            if (low*low == xBackUp)
+                return low;
+            if (high*high >= xBackUp && xBackUp >=low*low){
+                break;
+            }else{
+                high -= sbc; low -= sbc; cout << "inwhile: high" << high << endl; cout << "inwhile: low" << low << endl;
+            }
         }
-        b = pow(x-1.0, i);
-        c = fac(i);
-        double tmp2 = a*b/c;
-        cout << a << " " << b << " " << c << endl;
-        sqrt += tmp2;
     }
-    
-    return sqrt;
+    return low;
 }
