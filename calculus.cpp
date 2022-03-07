@@ -24,6 +24,18 @@ double F(double x, int n) {
     return a * temp;
 }
 
+double f(double x, int n) {
+    int a;
+    if (n % 2 == 0)
+        a = 1;
+    else
+        a = -1;
+    double temp = 1;
+    for (int i = 1; i <= 2*n; i++)
+        temp = temp * x / i;
+    return a * temp;
+}
+
 /***
     Args:
         x (double): a number
@@ -32,13 +44,13 @@ double F(double x, int n) {
 ***/
 double myCos(double x) 
 {
-    double sin = 0;
+    double cos = 0;
     int n = 0;
-    while (abs(F(x, n)) > 0.000000001) {
-        sin += F(x, n);
+    while (abs(f(x, n)) > 0.000001) {
+        cos += f(x, n);
         n++;
     }
-    return sqrt(1-sin*sin);
+    return cos;
 }
 
 /***
@@ -51,7 +63,7 @@ double mySin(double x)
 {
     double sin = 0;
     int n = 0;
-    while (abs(F(x, n)) > 0.000000001) {
+    while (abs(F(x, n)) > 0.000001) {
         sin += F(x, n);
         n++;
     }
@@ -70,7 +82,7 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    const double EPSILON = 0.000000001;
+    const double EPSILON = 0.000001;
     double result = 1.0;
     while (abs(result * result - x) / x >= EPSILON)
         result = (x / result  - result) / 2 + result;
