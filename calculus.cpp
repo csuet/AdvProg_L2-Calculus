@@ -20,6 +20,8 @@ const double PI = 3.14159265359;
     Returns:
         double: cosine of x
 ***/
+double esp = 0.00001;
+
 double myCos(double x) 
 {
     double res = 1;
