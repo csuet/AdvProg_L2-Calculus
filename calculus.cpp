@@ -30,7 +30,7 @@ double myCos(double x)
         cos = cos + x_n;    
         n++;
         giaithua = giaithua*2*n*(2*n - 1);
-    } while (abs(x_n) > 0.0000001);
+    } while (abs(x_n) > 0.00001);
     return cos;
 }
 
@@ -52,7 +52,7 @@ double mySin(double x)
         sin = sin + x_n;
         n++;
         giaithua = giaithua*2*n*(2*n + 1);
-    } while (abs(x_n) > 0.0000001);
+    } while (abs(x_n) > 0.00001);
     return sin;
 }
 
@@ -72,6 +72,6 @@ double mySqrt(double x) {
     do{
         x_cu = x_moi;
         x_moi = x_cu - (x_cu * x_cu - x)/(2 * x_cu);
-    }while(abs(x_cu - x_moi) > 0.0000001);
+    }while(abs(x_cu - x_moi) > 0.00001);
     return x_moi;
 }
