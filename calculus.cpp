@@ -20,7 +20,18 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    int n = 0;
+    double cos = 0;
+    double x_n;
+    int giaithua = 1;
+    do
+    {
+        x_n = pow(-1,n)*double(pow(x,2*n))/giaithua;
+        cos = cos + x_n;    
+        n++;
+        giaithua = giaithua*2*n*(2*n - 1);
+    } while (abs(x_n) > 0.0000001);
+    return cos;
 }
 
 /***
@@ -31,7 +42,18 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    int n = 0;
+    double sin = 0;
+    double x_n;
+    int giaithua = 1;
+    do
+    {
+        x_n = pow(-1,n)*double(pow(x,2*n+1))/giaithua;
+        sin = sin + x_n;
+        n++;
+        giaithua = giaithua*2*n*(2*n + 1);
+    } while (abs(x_n) > 0.0000001);
+    return sin;
 }
 
 
@@ -46,7 +68,11 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    double x_moi = x/2 , x_cu;
+    do{
+        x_cu = x_moi;
+        x_moi = x_cu - (x_cu * x_cu - x)/(2 * x_cu);
+        cout << x_cu << " " << x_moi << endl;
+    }while(abs(x_cu - x_moi) > 0.0000001);
+    return x_moi;
 }
