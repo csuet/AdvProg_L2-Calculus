@@ -67,13 +67,19 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    double a = 1, b = 0, c = 0;
-    for (int i=0; i<6-1; i++){
-        a*=(1/2 - i);
+    double sqrt = 1;
+    for (double i=1; i<=6; i++){
+        double a = 1, b = 0, c = 0;
+        for (double j=0; j<i; j++){
+            double tmp = 1.0/2 - j;
+            a*=tmp;
+        }
+        b = pow(x-1.0, i);
+        c = fac(i);
+        double tmp2 = a*b/c;
+        cout << a << " " << b << " " << c << endl;
+        sqrt += tmp2;
     }
-    b = pow(x-1, 6);
-    c = fac(6);
     
-    return a*b/c;
+    return sqrt;
 }
