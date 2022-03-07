@@ -61,7 +61,7 @@ double mySqrt(double x) {
 	for (int i = 0; i < 100; i++)
 	{
 		afterNum = 1.0 / 2 * (preNum + x / preNum);
-		afterNum = afterNum;
+		preNum = afterNum;
 	}
     return afterNum;
 }
