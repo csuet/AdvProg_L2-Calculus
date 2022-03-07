@@ -31,7 +31,7 @@ double myCos(double x)
 {
     double cosx = 1.0;
     int n = 2, count = 1;
-    while ((pow(x,n)/giaiThua(n))>0.0000001)
+    while ((pow(x,n)/giaiThua(n))>0.001)
     {
         cosx = 1 + (pow(-1,count))*(pow(x,n)/giaiThua(n));
         n = n + 2;
@@ -51,7 +51,7 @@ double mySin(double x)
 {
     double sinx = x;
     int n = 3, count = 1;
-    while ((pow(x,n)/giaiThua(n))>0.0000001)
+    while ((pow(x,n)/giaiThua(n))>0.001)
     {
         sinx = 1 + (pow(-1,count))*(pow(x,n)/giaiThua(n));
         n = n + 2;
@@ -74,7 +74,7 @@ double mySqrt(double x) {
     }
     else {
         double result = 1.0;
-        while (abs((result*result - x)/(2*result) > 0.0000001))
+        while (fabs((result*result - x)/(2*result) > 0.001))
         {
             result = result - (result*result - x)/(2*result);
         }
