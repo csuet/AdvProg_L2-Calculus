@@ -13,7 +13,7 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-double F(double x, int n) {
+double Fn(double x, int n) {
     int a;
     if (n % 2 == 0)
         a = 1;
@@ -25,7 +25,7 @@ double F(double x, int n) {
     return a * temp;
 }
 
-double f(double x, int n) {
+double f_n(double x, int n) {
     int a;
     if (n % 2 == 0)
         a = 1;
@@ -53,8 +53,8 @@ double myCos(double x)
     }
     double cos = 0;
     int n = 0;
-    while (abs(f(x, n)) > 0.0000001) {
-        cos += f(x, n);
+    while (fabs(f_n(x, n)) > 0.0000001) {
+        cos += f_n(x, n);
         n++;
     }
     return cos;
@@ -76,8 +76,8 @@ double mySin(double x)
     }
     double sin = 0;
     int n = 0;
-    while (abs(F(x, n)) > 0.0000001) {
-        sin += F(x, n);
+    while (fabs(Fn(x, n)) > 0.0000001) {
+        sin += Fn(x, n);
         n++;
     }
     return sin;
@@ -97,7 +97,7 @@ double mySqrt(double x) {
     }
     const double EPSILON = 0.0000001;
     double result = 1.0;
-    while (abs(result * result - x) / x >= EPSILON)
+    while (fabs(result * result - x) / x >= EPSILON)
         result = (x / result  - result) / 2 + result;
     return result;
 }
