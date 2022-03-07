@@ -75,10 +75,15 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double x_moi = x/2 , x_cu;
-    do{
-        x_cu = x_moi;
-        x_moi = x_cu - (x_cu * x_cu - x)/(2 * x_cu);
-    }while(x_cu - x_moi > EPSILON or x_cu - x_moi < -EPSILON);
-    return x_moi;
+	//return sqrt(x);
+
+	//Babylonian method
+	double b_prev=x, b=1; 	//day vo han nhung chi can dung cai truoc tinh cai sau
+	const double Epsilon = 0.00001;
+	while(b-b_prev > Epsilon || b-b_prev < -Epsilon)
+    {
+		b_prev = b;
+		b = (b + x/b) /2;
+	}
+    return b;
 }
