@@ -19,8 +19,9 @@ double gt(int n){
 
 double mySin(double x){
 	int i = 0;
-	double s = 0; s1 = 0, s2 = 0;
-	
+	double s = 0;
+	double s1 = 0;
+	double s2 = 0;
 	do{
 		s1 = s2;
 		s = s + (pow(-1,i)*pow(x,2*i+1))/(gt(2*i+1));
