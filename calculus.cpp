@@ -68,6 +68,12 @@ double mySqrt(double x) {
         exit(1);
     }
 
+    double a = 1, b = 0, c = 0;
+    for (int i=0; i<6-1; i++){
+        a*=(1/2 - i);
+    }
+    b = pow(x-1, 6);
+    c = fac(6);
     
-    return sqrt(x);
+    return a*b/c;
 }
