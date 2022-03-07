@@ -61,10 +61,11 @@ double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
-
+    }
     double result=x;
     for (int i=0;i<10;i++){
         result=(result+x/result)/2;
     }
     return result;
 }
+
