@@ -18,19 +18,20 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double FCos(double x. int n)
-{
-    int a;
-    if (n%2==0)
-    a=1;
-    else
-    a=-1;
-    float temp=1;
-    for (int i=1; i<=2*n; i++)
-    temp=temp*x/i;
-    return a*temp;
-}
+
 double myCos(double x)
+    double FCos(double x. int n)
+    {
+        int a;
+        if (n%2==0)
+        a=1;
+        else
+        a=-1;
+        float temp=1;
+        for (int i=1; i<=2*n; i++)
+        temp=temp*x/i;
+        return a*temp;
+    }
 {
     double result=0;
     int n=0;
@@ -47,19 +48,19 @@ double myCos(double x)
     Returns:
         double: sine of x
 ***/
-double FSin (double x, int n)
-{
-    int a;
-    if (n%2==0)
-        a=1;
-    else
-        a=-1;
-    float temp=1;
-    for (int i=1; i<=2*n+1; i++)
-        temp=temp*x/i;
-    return a*temp;
-}
 double mySin(double x)
+    double FSin (double x, int n)
+    {
+        int a;
+        if (n%2==0)
+            a=1;
+        else
+            a=-1;
+        float temp=1;
+        for (int i=1; i<=2*n+1; i++)
+            temp=temp*x/i;
+        return a*temp;
+    }
 {
     double result=0;
     int n=0;
@@ -83,6 +84,8 @@ double mySqrt(double x) {
         exit(1);
     }
     else
-        return sqrt(x);
-
+        double result = 1.0f;
+        while (fabs(result * result – number) / number >= 0.0001f)
+        result = (number / result  – result) / 2 + result;
+        return result;
 }
