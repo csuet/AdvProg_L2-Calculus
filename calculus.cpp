@@ -29,7 +29,7 @@ int giaiThua(int n)
 
 double myCos(double x) 
 {
-    double cosx = 1;
+    double cosx = 1.0;
     int n = 2, count = 1;
     while ((pow(x,n)/giaiThua(n))>0.0000001)
     {
