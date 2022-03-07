@@ -66,8 +66,8 @@ double mySqrt(double x) {
         exit(1);
     }else{
     	double result = 1;
-    	while (fabs(result * result - number) / number >= 0.0001){
-        	result = (number / result  - result) / 2 + result;
+    	while (fabs(result * result - x) / x >= 0.0001){
+        	result = (x / result  - result) / 2 + result;
         }
     	return result;
 	}
