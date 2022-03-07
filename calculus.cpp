@@ -6,6 +6,7 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
+using namespace std;
 
 
 double mySin(double x);
@@ -20,7 +21,8 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double ans = cos(x);
+    return ans;
 }
 
 /***
@@ -31,7 +33,8 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double ans =  sin(x);
+    return ans;
 }
 
 
@@ -47,6 +50,6 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    double ans = sqrt(x);
+    return ans;
 }
