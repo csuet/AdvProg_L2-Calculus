@@ -68,7 +68,7 @@ double mySqrt(double x) {
         double temp;
         double a_0 = 1;
         double a = 1.0f;
-        while(abs(a - temp) >= 0){
+        while(abs(a - temp) > 0){
             a= 1.0/2 * (a_0+ x /a_0);
             temp = a_0;
             a_0 = a;
