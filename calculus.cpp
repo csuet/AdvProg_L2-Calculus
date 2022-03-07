@@ -36,6 +36,7 @@ double myCos(double x)
 	return sum;
 }
 
+
 /***
     Args:
         x (double): a number
