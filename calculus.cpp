@@ -54,6 +54,14 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    
-    return sqrt(x);
+    if(x == 0) return 0;
+    if(x == 1) return 1;
+    double preNum = x;
+    double afterNum = x;
+	for (int i = 0; i < 100; i++)
+	{
+		afterNumber = 1.0 / 2 * (preNum + x / preNum);
+		afterNum = afterNum;
+	}
+	return afterNum;
 }
