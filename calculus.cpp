@@ -20,6 +20,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
+    // commentttttt 
     return 0.0;
 }
 
