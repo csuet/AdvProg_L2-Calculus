@@ -11,6 +11,13 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
+long long giaiThua(double n);
+
+long long giaiThua(double n){
+	long long ans=1;
+	for(int i=1;i<=n;i++) ans*=i;
+	return ans;
+}
 
 /***
     Args:
@@ -20,7 +27,13 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return cos(x);
+    double cos=0,preCos=0,j=0;
+	do{
+		preCos=cos;
+		cos += pow(-1,j)*pow(x,2*j)/giaiThua(2*j);
+		j++;
+	}while( fabs(cos-preCos) > 0.0000001);
+    return cos;
 }
 
 /***
@@ -31,7 +44,13 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sin(x);
+    double sin=0,preSin=0,j=0;
+	do{
+		preSin=sin;
+		sin += pow(-1,j)*pow(x,2*j)/giaiThua(2*j);
+		j++;
+	}while( fabs(sin-preSin) > 0.0000001);
+    return sin;
 }
 
 
@@ -46,9 +65,13 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }else{
-    	return sqrt(x);
+    	double result = 1;
+    	while (fabs(result * result - number) / number >= 0.0001){
+        	result = (number / result  - result) / 2 + result;
+        }
+    	return result;
 	}
-	
+
     
     return 0;
 }
