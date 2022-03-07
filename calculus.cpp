@@ -36,7 +36,7 @@ double myCos(double x)
     double result=0;
     int n=0;
     while (abs(FCos(x, n))>0.00001) {
-        result += FCos(x, n);
+        result+=FCos(x, n);
         n++;
     }
     return result;
@@ -50,7 +50,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
     double FSin (double x, int n)
-    {
+    {   double FSin
         int a;
         if (n%2==0)
             a=1;
@@ -65,7 +65,7 @@ double mySin(double x)
     double result=0;
     int n=0;
     while (abs(FSin(x, n))>0.00001) {
-        result += FSin(x, n);
+        result+=FSin(x, n);
         n++;
     }
     return result;
@@ -84,8 +84,8 @@ double mySqrt(double x) {
         exit(1);
     }
     else
-        double result = 1.0f;
-        while (fabs(result * result – number) / number >= 0.0001f)
-        result = (number / result  – result) / 2 + result;
+        double result = 1.0;
+        while (fabs(result*result–number)/number>=0.00001)
+        result=(number/result–result)/2+result;
         return result;
 }
