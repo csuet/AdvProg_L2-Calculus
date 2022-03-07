@@ -21,14 +21,15 @@ double mySqrt(double x);
 double myCos(double x) 
 {
     double cosin = 0;
-    double F = 1;
+    double F = 1.0;
     int i = 1;
     while(abs(F) > 0){
         cosin +=F ;
-        F = (-1)*F*(x*x)/(i*(i+1));
+        F *= (-1)*(x*x)/(i*(i+1));
         i += 2;
     }
     return cosin;
+    
 }
 
 /***
