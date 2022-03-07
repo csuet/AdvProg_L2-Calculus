@@ -45,14 +45,14 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    // double sin = 0;
-    // for (double i=0; i<6; i++){
-    //     double a = pow(x, 2*i+1);
-    //     double b = pow(-1, i);
-    //     double c = fac(2*i+1);
-    //     sin += a*b/c;
-    // }
-    return sin(x);
+    double sin = 0;
+    for (double i=0; i<6; i++){
+        double a = pow(x, 2*i+1);
+        double b = pow(-1, i);
+        double c = fac(2*i+1);
+        sin += a*b/c;
+    }
+    return sin;
 }
 
 
