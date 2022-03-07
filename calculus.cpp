@@ -46,7 +46,7 @@ double dealClassCosx(double x, int n)
 
 double myCos(double x)
 {
-    x = x * M_PI / 180;
+    // x = x * M_PI / 180;
     int n = 0;
     double cosx = 0;
     while (fabs(dealClassCosx(x, n)) > 0.00001)
@@ -65,7 +65,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    x = x * M_PI / 180;
+    // x = x * M_PI / 180;
     int n = 0;
     double sinx = 0;
     while (fabs(dealClassSinx(x, n)) > 0.00001)
@@ -98,12 +98,12 @@ double mySqrt(double x)
     }
     return ans;
 }
-int main()
-{
-    double x;
-    cin >> x;
+// int main()
+// {
+//     double x;
+//     cin >> x;
 
-    mySin(x);
-    myCos(x);
-    mySqrt(x);
-}
+//     mySin(x);
+//     myCos(x);
+//     mySqrt(x);
+// }
