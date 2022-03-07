@@ -22,13 +22,8 @@ const double HALF_PI = PI / 2;
 /// it makes calculation of sin(x) and cos(x) faster and more accurate
 double bringTo2Pi(double x)
 {
-    bool is_negative = false;
-    if (x < 0) {
-        is_negative = true;
-        x = -x;
-    }
     double result = x - std::floor(x / TWO_PI) * TWO_PI;
-    if (is_negative) result = TWO_PI - result;
+    if (result < 0) result += TWO_PI;
     return result;
 }
 
@@ -86,7 +81,7 @@ double newtonsMethodSqrtIteration(double current, double x)
     ///sqrt(x) = u -> u * u - x = 0
     ///let f(u) = u * u - x
     ///then f'(u) = 2 * u
-    return current - (current * current - x) / (2 * current);
+    return current - (current - x / current) / 2;
 }
 /***
     Args:
@@ -96,7 +91,7 @@ double newtonsMethodSqrtIteration(double current, double x)
 ***/
 double mySqrt(double x) 
 {
-    /// I'd prefer throwing to exit the program, but anyway
+    /// I'd prefer throwing to exiting the program, but anyway
     if (x < 0) {
         std::cout << "Invalid argument" << std::endl;
         exit(1);
