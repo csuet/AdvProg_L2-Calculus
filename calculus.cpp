@@ -24,16 +24,12 @@ double gt(int n){
 }
 double myCos(double x) 
 {   
-    double k,kq=1;
-    int i=2;
-    do{ 
-        k = kq;
-        if(i%4==0) kq+=(1/gt(i))*double(pow(x,i));
-        else kq+=(-1/gt(i))*double(pow(x,i));
-        i+=2;
-    }while(abs(kq-k)>0.0001);
-    //cout<<kq;
-    return kq;
+    double sum = 0;
+	for (int i = 0; i < 100; i++)
+	{
+		sum += (pow(-1, i) * pow(x, 2 * i) / gt(i * 2));
+	}
+	return sum;
 }
 
 /***
