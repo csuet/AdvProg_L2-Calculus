@@ -2,6 +2,7 @@
 #include <string>
 #include <cmath>
 
+
 using std::string;
 using std::cout;
 using std::endl;
@@ -19,8 +20,9 @@ double mySqrt(double x);
         double: cosine of x
 ***/
 double myCos(double x) 
-{
-    return 0.0;
+{   
+    double myCos=cos(x);
+    return myCos;
 }
 
 /***
@@ -31,7 +33,9 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double mysin=sin(x);
+    return mysin;
+    
 }
 
 
@@ -48,5 +52,5 @@ double mySqrt(double x) {
     }
 
     
-    return 0;
+    return sqrt(x);
 }
