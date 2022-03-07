@@ -54,7 +54,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-   return myCos(3.14159265359/2-x)
+   return myCos(3.14159265359/2-x);
 }
 
 
