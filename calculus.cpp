@@ -7,46 +7,50 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: cosine of x
-***/
+double Factorial( double n ) {
+    if ( n == 1 || n == 0 ) return 1;
+    else 
+	return n * Factorial(n - 1);
+}
+
 double myCos(double x) 
 {
-    return 0.0;
+    double sum = 0;
+	for (int i = 0; i < 100; i++)
+	{
+		sum += (pow(-1, i) * pow(x, 2 * i) / Factorial(i * 2));
+	}
+
+	return sum;
 }
 
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: sine of x
-***/
 double mySin(double x)
 {
-    return 0.0;
+    double sum = 0;
+	for (int i = 0; i < 100; i++)
+	{
+		sum += (pow(-1, i) * pow(x, 2 * i + 1) / Factorial(i * 2 + 1));
+	}
+
+	return sum;
 }
-
-
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: square root of x
-***/
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
 
-    
-    return 0;
+    double preNum = x;
+    double afterNum = x;
+	for (int i = 0; i < 100; i++)
+	{
+		afterNum = 1.0 / 2 * (preNum + x / preNum);
+		preNum = afterNum;
+	}
+
+	return afterNum;    
 }
