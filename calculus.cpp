@@ -24,7 +24,7 @@ double factorial( double number ) {
 ***/
 double myCos(double x)
 {
-    rdouble sum = 0;
+    double sum = 0;
 	for (int i = 0; i < 100; i++)
 	{
 		sum += (pow(-1, i) * pow(x, 2 * i) / factorial(i * 2));
