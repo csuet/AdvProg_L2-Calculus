@@ -24,13 +24,14 @@ double myCos(double x)
     double cos = 0;
     double x_n;
     double giaithua = 1;
+    const double epsilon = 0.0001;
     do
     {
         x_n = pow(-1,n)*double(pow(x,2*n))/giaithua;
         cos = cos + x_n;    
         n++;
         giaithua = giaithua*2*n*(2*n - 1);
-    } while (abs(x_n) > 0.00001);
+    } while (abs(x_n) > epsilon);
     return cos;
 }
 
@@ -46,13 +47,14 @@ double mySin(double x)
     double sin = 0;
     double x_n;
     double giaithua = 1;
+    const double epsilon = 0.0001;
     do
     {
         x_n = pow(-1,n)*double(pow(x,2*n+1))/giaithua;
         sin = sin + x_n;
         n++;
         giaithua = giaithua*2*n*(2*n + 1);
-    } while (abs(x_n) > 0.00001);
+    } while (abs(x_n) > epsilon);
     return sin;
 }
 
