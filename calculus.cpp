@@ -57,16 +57,16 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
-double mySqrt(double x) {
-    if(x < 0) {
+double mySqrt(double n) {
+    if(n < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double root, n = x;
-    while(true) {
-        root = 0.5 * (n + (x / n));
-        if(fabs(root - n) < 1) break;
-        n = root;
+    double a = n/4; 
+    double res = a - ((a * a - n)/(2 * a)); 
+    while(res - a > esp){
+        a = res;
+        res = a - ((a * a - n)/(2 * a)); 
     }
-    return root;
+    return res; 
 }
