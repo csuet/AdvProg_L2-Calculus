@@ -27,14 +27,14 @@ double fac(double n){
 
 double myCos(double x) 
 {
-    double sin = 0;
-    for (double i=0; i<6; i++){
-        double a = pow(x, 2*i);
-        double b = pow(-1, i);
-        double c = fac(2*i);
-        sin += a*b/c;
-    }
-    return sin;
+    // double cos = 0;
+    // for (double i=0; i<6; i++){
+    //     double a = pow(x, 2*i);
+    //     double b = pow(-1, i);
+    //     double c = fac(2*i);
+    //     sin += a*b/c;
+    // }
+    return sin(x);
 }
 
 /***
