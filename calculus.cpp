@@ -48,7 +48,7 @@ double myCos(double x)
 double mySin(double x)
 {
     double result = 0;
-    double k=1; double pos = 1;
+    double k=1; int pos = 1;
     while (abs((1/factorial(k))*pow(x,k))>epsilon)
     {
         if (pos%2!=0)
