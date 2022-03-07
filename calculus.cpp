@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <sstream>
 
 using std::string;
 using std::cout;
