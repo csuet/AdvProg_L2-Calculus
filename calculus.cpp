@@ -21,7 +21,7 @@ double mySqrt(double x);
 double mySin(double x) {
     double cur = 1;
     double res = 0;
-    for (int i = 1; cur >= 1e-6; ++i) {
+    for (int i = 1; abs(cur) >= 1e-6; ++i) {
         cur *= x / i;
         if (i % 4 == 1) {
             res += cur;
@@ -36,7 +36,7 @@ double mySin(double x) {
 double myCos(double x) {
     double cur = 1;
     double res = 1;
-    for (int i = 1; cur >= 1e-6; ++i) {
+    for (int i = 1; abs(cur) >= 1e-6; ++i) {
         cur *= x / i;
         if (i % 4 == 2) {
             res -= cur;
