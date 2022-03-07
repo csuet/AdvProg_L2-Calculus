@@ -40,7 +40,7 @@ double CosMaclaurin(double x, int n){
 double myCos(double x){
     double cos = 0;
     for (int i=0; i<1000; i++){
-        if (abs(CosMaclaurin(x,i))>0.001){
+        if (abs(CosMaclaurin(x,i))>0.0000001){
             cos += CosMaclaurin(x,i);
         }
         else {
@@ -73,7 +73,7 @@ double SinMaclaurin(double x, int n){
 double mySin(double x){
     double sin = 0;
     for (int i=0; i<1000; i++){
-        if (abs(SinMaclaurin(x,i))>0.001){
+        if (abs(SinMaclaurin(x,i))>0.0000001){
             sin += SinMaclaurin(x,i);
         }
         else {
