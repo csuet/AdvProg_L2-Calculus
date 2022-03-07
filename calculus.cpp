@@ -75,11 +75,11 @@ double mySqrt(double x) {
     }
     return ans;
 }
-int main(){
+/*int main(){
     double x;
     cin>>x;
    // x= x * M_PI/180;
     cout<<myCos(x)<<endl;
     cout<<mySin(x)<<endl;
     cout<<mySqrt(x)<<endl;
-}
+}*/
