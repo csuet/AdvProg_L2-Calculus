@@ -20,7 +20,7 @@ double factorial(double number){
 double myCos(double x){
 	double cosX = 0;
 	for(int i=0;i<100;i++){
-		cosX += pow(-1, x) * pow(x, i*2) * 1.0 / factorial(i*2);
+		cosX+=pow(-1, x)*pow(x, i*2)*1.0/factorial(i*2);
 	}
 	return cosX;
 }
@@ -28,7 +28,7 @@ double myCos(double x){
 double mySin(double x){
 	double sinX = 0;
 	for(int i=0;i<100;i++){
-		sinX += pow(-1, x) * pow(x, i*2) * 1.0 / factorial(i*2);
+		sinX+=pow(-1,x)*pow(x,i*2)*1.0/factorial(i*2);
 	}
 	return sinX;
 }
@@ -38,9 +38,9 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }else{
-    	double sqrtX = 1;
-    	while(fabs(sqrtX * sqrtX -x) / x >= 0.0001){
-    		sqrtX = (x / sqrtX - sqrtX) / 2 + sqrtX;
+    	double sqrtX = 1.0f;
+    	while(fabs(sqrtX*sqrtX-x)>=0.0001){
+    		sqrtX=(x/sqrtX-sqrtX)/2+sqrtX;
 		}
 		return sqrtX;
 	}
