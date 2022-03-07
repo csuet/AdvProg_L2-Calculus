@@ -23,7 +23,7 @@ double myCos(double x)
     double cosin = 0;
     double F = 1.0;
     int i = 1;
-    while(abs(F) > 0.001){
+    while(abs(F) >= 1e-6){
         cosin +=F ;
         F *= (-1)*(x*x)/(i*(i+1));
         i += 2;
@@ -43,7 +43,7 @@ double mySin(double x)
     double sine = 0;
     double F = x;
     int i = 2;
-    while(abs(F) > 0.001){
+    while(abs(F) >= 1e-6){
         sine += F;
         F = (-1)*F*(x*x)/(i*(i+1));
         i += 2;
@@ -66,7 +66,7 @@ double mySqrt(double x) {
         double temp;
         double a_0 = 1;
         double a = 1.1;
-        while(abs(a - temp) >0.001){
+        while(abs(a - temp) >= 1e-6){
             a= 1.0/2 * (a_0+ x /a_0);
             temp = a_0;
             a_0 = a;
