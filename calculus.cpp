@@ -23,12 +23,14 @@ double myCos(double x)
     double cosin = 0;
     double F = 1.0;
     int i = 1;
-    while(abs(F) >= 1e-6){
+    while(fabs(F) >= 1e-6){
         cosin +=F ;
         F *= (-1)*(x*x)/(i*(i+1));
-        i += 2;
+        i = i+ 2;
     }
     return cosin;
+    
+    
     
 }
 
@@ -43,7 +45,7 @@ double mySin(double x)
     double sine = 0;
     double F = x;
     int i = 2;
-    while(abs(F) >= 1e-6){
+    while(fabs(F) >= 1e-6){
         sine += F;
         F = (-1)*F*(x*x)/(i*(i+1));
         i += 2;
