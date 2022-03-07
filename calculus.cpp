@@ -59,16 +59,18 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
-double mySqrt(double n) {
-    if(n < 0) {
+double mySqrt(double x) {
+    if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double a = n/4; 
-    double res = a - ((a * a - n)/(2 * a)); 
-    while(res - a > esp){
-        a = res;
-        res = a - ((a * a - n)/(2 * a)); 
-    }
-    return res; 
-}
+    double previousNumber = x;
+    double afterNumber = x;
+	for (int i = 0; i < 100; i++)
+	{
+
+		afterNumber = 1.0 / 2 * (previousNumber + x / previousNumber);
+		previousNumber = afterNumber;
+	}
+	return afterNumber;    
+} 
