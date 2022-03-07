@@ -39,7 +39,7 @@ double mySqrt(double x) {
         exit(1);
     }else{
     	double sqrtx = 1.0;
-    	while(fabs(sqrtx * sqrtx - x) / x >= 0.0001){
+    	while(fabs(sqrtx * sqrtx -x) / x >= 0.0001){
     		sqrtx = (x / sqrtx - sqrtx) / 2 + sqrtx;
 		}
 		return sqrtx;
