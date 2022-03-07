@@ -50,7 +50,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
     double FSin (double x, int n)
-    {   double FSin
+    {
         int a;
         if (n%2==0)
             a=1;
