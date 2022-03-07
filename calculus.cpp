@@ -20,7 +20,7 @@ double mySqrt(double x);
 ***/
 
 double myCos(double x)
-    double FCos(double x. int n)
+    double FCos(double x, int n)
     {
         int a;
         if (n%2==0)
