@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include<math.>
+#include<math.h>
 
 using std::string;
 using std::cout;
