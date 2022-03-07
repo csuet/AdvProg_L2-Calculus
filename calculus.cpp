@@ -60,21 +60,18 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
-double hesotu(int n) {
-    if (n == 0) return 1;
-    if (n == 1) return 0.5;
-    return (1.5 - n) * hesotu(n - 1);
-}
+
 
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double y = x - 1;
-    double sum = 0;
-    for (int i = 0; i <= 100; ++i) {
-        sum += pow(y, i) * hesotu(i) / factorial(i);
+    double sum = 1, oldSum = 0;
+    for(int i = 0; i < 1000; i++) {
+        oldSum = sum;
+        sum += (((double) x / sum - sum) / 2);
+        ++i;
     }
     return sum;
 }
