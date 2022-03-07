@@ -47,7 +47,7 @@ double mySin(double x)
     double sin=0,preSin=0,j=0;
 	do{
 		preSin=sin;
-		sin += pow(-1,j)*pow(x,2*j)/giaiThua(2*j+1);
+		sin += pow(-1,j)*pow(x,2*j+1)/giaiThua(2*j+1);
 		j++;
 	}while( fabs(sin-preSin) > 0.0000001);
     return sin;
