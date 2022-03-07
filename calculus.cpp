@@ -59,14 +59,15 @@ double mySin(double x){
     Returns:
         double: square root of x
 ***/
+#define EPSILON 0.0001f
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
     else
-        double result = 1.0;
-        while (fabs(result*result–number)/number>=0.00001)
+        double result = 1.0f;
+        while (fabs(result*result–number)/number>=EPSILON)
         result=(number/result–result)/2+result;
         return result;
 }
