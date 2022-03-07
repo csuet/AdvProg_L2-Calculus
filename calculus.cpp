@@ -11,9 +11,10 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-double factorial( double number ) {
-    if ( number == 1 || number == 0 ) return 1;
-    else return number * factorial(number - 1);
+double Factorial( double n ) {
+    if ( n == 1 || n == 0 ) return 1;
+    else 
+	return n * Factorial(n - 1);
 }
 
 double myCos(double x) 
@@ -21,8 +22,9 @@ double myCos(double x)
     double sum = 0;
 	for (int i = 0; i < 100; i++)
 	{
-		sum += (pow(-1, i) * pow(x, 2 * i) / factorial(i * 2));
+		sum += (pow(-1, i) * pow(x, 2 * i) / Factorial(i * 2));
 	}
+
 	return sum;
 }
 
@@ -31,8 +33,9 @@ double mySin(double x)
     double sum = 0;
 	for (int i = 0; i < 100; i++)
 	{
-		sum += (pow(-1, i) * pow(x, 2 * i + 1) / factorial(i * 2 + 1));
+		sum += (pow(-1, i) * pow(x, 2 * i + 1) / Factorial(i * 2 + 1));
 	}
+
 	return sum;
 }
 double mySqrt(double x) {
@@ -41,12 +44,13 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    double previousNumber = x;
-    double afterNumber = x;
+    double preNum = x;
+    double afterNum = x;
 	for (int i = 0; i < 100; i++)
 	{
-		afterNumber = 1.0 / 2 * (previousNumber + x / previousNumber);
-		previousNumber = afterNumber;
+		afterNum = 1.0 / 2 * (preNum + x / preNum);
+		preNum = afterNum;
 	}
-	return afterNumber;    
+
+	return afterNum;    
 }
