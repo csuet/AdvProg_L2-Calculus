@@ -27,7 +27,7 @@ double myCos(double x)
     while(check){
         factorial=factorial*(2*n-1)*2*n;
         t=pow(-1,n)*pow(x,2*n)/factorial;
-        if(abs(t)>=denta) {cosx+=t;}
+        if(fabs(t)>=denta) {cosx+=t;}
         else check=false;
         n++;
     }
@@ -47,7 +47,7 @@ double mySin(double x)
     while(check){
         factorial=factorial*(2*n+1)*2*n;
         t=pow(-1,n)*pow(x,2*n+1)/factorial;
-        if(abs(t)>=denta) sinx+=t;
+        if(fabs(t)>=denta) sinx+=t;
         else check=false;
         n++;
     }
@@ -69,7 +69,7 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }else{
-        while(abs(sqrtx-t)>=denta){
+        while(fabs(sqrtx-t)>=denta){
             t=sqrtx;
             sqrtx=(t+x/t)/2;
         }
