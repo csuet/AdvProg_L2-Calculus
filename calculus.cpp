@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::stod;
 const double epsilon = 0.000001;
-double factorial(int number)
+double factorial(double number)
 {
     if (number<=1)
     {
