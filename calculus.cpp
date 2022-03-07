@@ -7,6 +7,7 @@ using std::cout;
 using std::endl;
 using std::stod;
 
+const double pi = 3.14159265358979323846;
 
 double mySin(double x);
 double myCos(double x);
@@ -44,6 +45,12 @@ double f(double x, int n) {
 ***/
 double myCos(double x) 
 {
+    while (x > 2*pi) {
+        x -= 2*pi;
+    }
+    while (x < -2*pi) {
+        x += 2*pi;
+    }
     double cos = 0;
     int n = 0;
     while (abs(f(x, n)) > 0.0000001) {
@@ -61,6 +68,12 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
+    while (x > 2*pi) {
+        x -= 2*pi;
+    }
+    while (x < -2*pi) {
+        x += 2*pi;
+    }
     double sin = 0;
     int n = 0;
     while (abs(F(x, n)) > 0.0000001) {
