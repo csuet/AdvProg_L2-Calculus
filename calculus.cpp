@@ -29,7 +29,7 @@ double mySqrt(double x);
 double myCos(double x) 
 {
     double result = 0;
-    int k = 0;
+    double k = 0;
     while (abs(((1/factorial(2*k))*pow(-1,k)*pow(x,2*k))) > epsilon)
     {
         result += ((1/factorial(2*k))*pow(-1,k)*pow(x,2*k));
@@ -48,7 +48,7 @@ double myCos(double x)
 double mySin(double x)
 {
     double result = 0;
-    int k=1; int pos = 1;
+    double k=1; double pos = 1;
     while (abs((1/factorial(k))*pow(x,k))>epsilon)
     {
         if (pos%2!=0)
