@@ -30,8 +30,8 @@ double lt(double a, int b){
 ***/
 double myCos(double x) 
 {
-
-    return (double) sqrt(1.0-mySin(x)*mySin(x));
+    double result = mySqrt(1.0-mySin(x)*mySin(x));
+    return result;
 }
 
 /***
