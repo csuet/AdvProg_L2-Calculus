@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-# define M_PI           3.14159265358979323846
+
 using std::string;
 using std::cout;
 using std::endl;
