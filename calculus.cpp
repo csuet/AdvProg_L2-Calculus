@@ -73,7 +73,7 @@ double mySqrt(double x) {
     ss << x; 
     string xDigits = ss.str();
     double high=0, low=0;
-    for (double i=xDigits.size()-1; i>=-2; i--){
+    for (double i=xDigits.size()-1; i>=-3; i--){
         double sbc = pow(10, i); cout << "sbc" << sbc <<endl;
         high = x, low = x - sbc; cout << "high" << high <<endl; cout << "low" << low <<endl;
         while (low>=0){
