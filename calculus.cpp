@@ -60,8 +60,8 @@ double mySqrt(double x) {
     double afterNum = x;
 	for (int i = 0; i < 100; i++)
 	{
-		afterNumber = 1.0 / 2 * (preNum + x / preNum);
+		afterNum = 1.0 / 2 * (preNum + x / preNum);
 		afterNum = afterNum;
 	}
-	return afterNum;
+    return afterNum;
 }
