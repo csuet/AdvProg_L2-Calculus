@@ -20,7 +20,16 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return cos(x);
+    if (x < 0) x = -x; // cos(x) = cos(-x)
+    x = x - floor(x / (2 * M_PI)) * 2 * M_PI; // x = x - 2*pi*floor(x/(2*pi))
+    double term = 1;
+    double cosx = 0;
+    double eps = 1e-9;
+    for (int n = 0; term >= eps || -term >= eps; n += 2) {
+        cosx += term;
+        term = -term * x * x / (n+1) / (n+2);
+    }
+    return cosx;
 }
 
 /***
@@ -31,7 +40,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sin(x);
+    return myCos(M_PI/2-x);
 }
 
 
