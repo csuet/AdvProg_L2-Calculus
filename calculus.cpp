@@ -74,7 +74,7 @@ double mySqrt(double x) {
     }
     else {
         double result = 1.0;
-        while (fabs((result*result - x)/(2*result)) > 0.001))
+        while (fabs((result*result - x)/(2*result)) > 0.001)
         {
             result = result - (result*result - x)/(2*result);
         }
