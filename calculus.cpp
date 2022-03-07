@@ -25,7 +25,7 @@ double factorial(int n){
 ***/
 double myCos(double x)
 {
-    x= x * M_PI/180.0;
+    //x= x * M_PI/180.0;
     int n=0;
     double s=0,s1=0,s2=0;
     do{
@@ -45,7 +45,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    x= x * M_PI/180;
+    //x= x * M_PI/180;
     int n=0;
     double s=0,s1=0,s2=0;
     do{
