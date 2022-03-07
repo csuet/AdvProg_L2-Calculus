@@ -25,13 +25,16 @@ double myCos(double x)
     double cos = 0;
     double x_n;
     double giaithua = 1;
+    double x_thaythe = 1;
     do
     {
-        x_n = pow(-1,n)*double(pow(x,2*n))/giaithua;
-        cos = cos + x_n;    
+        int a = (n%2 == 0) ? 1 : -1;
+        x_n = a * x_thaythe/giaithua;
+        cos = cos + x_n;
+        x_thaythe = x_thaythe * x * x;   // tinh x mu 2n 
         n++;
         giaithua = giaithua*2*n*(2*n - 1);
-    } while (abs(x_n) > EPSILON);
+    } while (x_n > EPSILON or x_n < -EPSILON);
     return cos;
 }
 
@@ -53,7 +56,7 @@ double mySin(double x)
         sin = sin + x_n;
         n++;
         giaithua = giaithua*2*n*(2*n + 1);
-    } while (abs(x_n) > EPSILON);
+    } while (x_n > EPSILON || x_n < EPSILON);
     return sin;
 }
 
