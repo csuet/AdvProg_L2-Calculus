@@ -69,7 +69,7 @@ double mySqrt(double x) {
         exit(1);
     }
     double xBackUp = x;
-    stringstream ss;
+    std::stringstream ss;
     ss << x;
     string xDigits = ss.str();
     double high=0, low=0;
