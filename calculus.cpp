@@ -47,7 +47,7 @@ double mySin(double x)
     int i=0;
     do{
         old = result;
-        result += lt(x, 2*i+1)*lt(-1, i)/gt(2*i+1);
+        result = lt(x, 2*i+1)*lt(-1, i)/gt(2*i+1) + result;
         i++;
     }
     while(result - old > EPSILON);
