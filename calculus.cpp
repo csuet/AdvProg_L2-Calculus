@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-const double pi = 3.14159265358979323846;
+const double pi = 3.14159265359;
 
 double mySin(double x);
 double myCos(double x);
