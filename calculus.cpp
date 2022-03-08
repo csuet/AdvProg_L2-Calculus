@@ -20,7 +20,19 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return cos(x);
+    double cosX = 1;
+    double factorial = 1;
+    double oldcosX = 0;
+    int n = 0;
+    do
+    {
+        ++n;
+        factorial = factorial * n * (n + 1);
+        ++n;
+        oldcosX = cosX;
+        cosX = cosX - 1.0/factorial * pow(x, n) * pow(-1, n/2 + 1);
+    } while (abs(cosX - oldcosX) > 0.000001);
+    return cosX;
 }
 
 
@@ -32,7 +44,19 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sin(x);
+    double sinX = x;
+    double factorial = 1;
+    double oldsinX = 0;
+    int n = 1;
+    do
+    {
+        ++n;
+        factorial = factorial * n * (n + 1);
+        ++n;
+        oldsinX = sinX;
+        sinX = sinX - 1.0/factorial * pow(x, n) * pow(-1, n/2 + 1);
+    } while (abs(sinX - oldsinX) > 0.000001);
+    return sinX;
 }
 
 
