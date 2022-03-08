@@ -14,13 +14,13 @@ double mySqrt(double x);
 double cosineElement[1000]; // Array contains elements from Maclaurin formula for cosine //
 double sineElement[1000]; // Array contains elements from Maclaurin formula for sine //
 
-//Function to return the angle in the range from -2*PI -> 2*PI
+//Function to return the angle in the range from -PI to PI
 double smallAngle(double x){
-    if (x>2*M_PI){
-        x = x-2*M_PI;
+    while (x>M_PI){
+        x = x-M_PI;
     }
-    if (x<-2*M_PI){
-        x = x+2*M_PI;
+    while (x<-M_PI){
+        x = x+M_PI;
     }
     return x;
 }
@@ -51,13 +51,10 @@ double CosMaclaurin(double x, int n){
 double myCos(double x){
     x = smallAngle(x);
     double cos = 0;
-    for (int i=0; i<1000; i++){
-        if (abs(CosMaclaurin(x,i))>0.0000001){
-            cos += CosMaclaurin(x,i);
-        }
-        else {
-            continue;
-        }
+    int i=0;
+    while (abs(CosMaclaurin(x,i)) > 0.0000001){
+        cos += CosMaclaurin(x,i);
+        i = i+1;
     }
     return cos;
 }
@@ -85,13 +82,10 @@ double SinMaclaurin(double x, int n){
 double mySin(double x){
     x = smallAngle(x);
     double sin = 0;
-    for (int i=0; i<1000; i++){
-        if (abs(SinMaclaurin(x,i))>0.0000001){
-            sin += SinMaclaurin(x,i);
-        }
-        else {
-            continue;
-        }
+    int i=0;
+    while (abs(CosMaclaurin(x,i)) > 0.0000001){
+        sin += SinMaclaurin(x,i);
+        i = i+1;
     }
     return sin;
 }
