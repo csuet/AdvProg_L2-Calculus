@@ -2,6 +2,8 @@
 #include <string>
 #include <cmath>
 
+#define EPSILON 0.0001f
+
 using std::cout;
 using std::endl;
 using std::stod;
@@ -83,7 +85,7 @@ double mySqrt(double x)
         exit(1);
     }
     double result = 1.0f;
-    while (fabs(result * result - number) / number >= EPSILON)
-        result = (number / result  - result) / 2 + result;
+    while (fabs(result * result - x) / x >= EPSILON)
+        result = (x / result  - result) / 2 + result;
     return result;
 }
