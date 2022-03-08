@@ -14,12 +14,6 @@ double myCos(double x);
 double mySqrt(double x);
 double factorial(double x);
 
-int main()
-{
-    double x;
-    cin >> x;
-    cout << mySqrt(x) << endl;
-}
 double factorial(double x)
 {
     double factorial = 1;
