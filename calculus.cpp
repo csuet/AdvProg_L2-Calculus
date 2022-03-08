@@ -27,7 +27,7 @@ double myCos(double x)
     for (int i = 1; i <= 2*n; i++)
         temp = temp * x/i;
     double count = a*temp;
-    float cos = 1;
+    double cos = 1;
     while (count > 0.00001)
     {
         cos += count;
@@ -49,11 +49,11 @@ double mySin(double x)
     int a, n;
     if (n % 2 == 0) a = 1;
     else a = -1;
-    float temp;
+    double temp;
     for ( int i = 1; i <= 2*n + 1; i++ )
         temp = temp * x/i;
     double count = a*temp;
-    float sin = 0;
+    double sin = 0;
     while (count > 0.00001){
         sin += count;
         n++;
