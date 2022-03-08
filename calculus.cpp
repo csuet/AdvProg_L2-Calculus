@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-
 using std::cout;
 using std::endl;
 using std::stod;
 using std::string;
-#define EPSILON 0.0001f
+
+const double EPSILON = 1e-5;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
@@ -19,28 +19,18 @@ double mySqrt(double x);
 ***/
 double myCos(double x)
 {
-    return 0.0;
-    while (x > 2 * M_PI)
+    // Maclaurin series
+    double numerator = 1, res = 0;
+    unsigned long long denominator = 1;
+    int count = 2;
+    while (fabs(numerator) / denominator > EPSILON)
     {
-        x -= 2 * M_PI;
+        res += numerator / denominator;
+        numerator *= -x * x;
+        denominator *= (count - 1) * count;
+        count += 2;
     }
-    double cos = 1.00;
-    int i = 1;
-    double temp = 1.00;
-    while (temp > 0.00001)
-    {
-        temp = 1.00;
-        for (int j = 1; j <= 2 * i; j++)
-        {
-            temp *= x * 1.00 / j;
-        }
-        if (i % 2 == 0)
-            cos += temp;
-        else
-            cos -= temp;
-        i++;
-    }
-    return cos;
+    return res;
 }
 
 /***
@@ -51,30 +41,19 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
-    while (x > 2 * M_PI)
+    // Maclaurin series
+    double numerator = x, res = 0;
+    unsigned long long denominator = 1;
+    int count = 3;
+    while (fabs(numerator) / denominator > EPSILON)
     {
-        x -= 2 * M_PI;
+        res += numerator / denominator;
+        numerator *= -x * x;
+        denominator *= (count - 1) * count;
+        count += 2;
     }
-    double sin = x * 1.00;
-    int i = 1;
-    double temp = 1.00;
-    while (temp > 0.00001)
-    {
-        temp = 1.00;
-        for (int j = 1; j <= 2 * i + 1; j++)
-        {
-            temp *= x * 1.00 / j;
-        }
-        if (i % 2 == 0)
-            sin += temp;
-        else
-            sin -= temp;
-        i++;
-    }
-    return sin;
+    return res;
 }
-
 /***
     Args:
         x (double): a number
@@ -88,9 +67,15 @@ double mySqrt(double x)
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    if (x == 0)
+        return 0;
 
-    double result = 1.0f;
-    while (fabs(result * result - x) / x >= EPSILON)
-        result = (x / result - result) / 2 + result;
-    return result;
+    // Newton's method
+    double oldX = 0, newX = x;
+    while (fabs(oldX - newX) > EPSILON)
+    {
+        oldX = newX;
+        newX = (oldX + x / oldX) / 2;
+    }
+    return newX;
 }
