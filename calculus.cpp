@@ -6,6 +6,7 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
+using std::pow;
 
 
 double mySin(double x);
