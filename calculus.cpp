@@ -1,12 +1,14 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+
 using std::cout;
 using std::endl;
 using std::stod;
 using std::string;
 
 const double EPSILON = 1e-5;
+
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
