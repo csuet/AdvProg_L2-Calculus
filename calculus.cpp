@@ -11,18 +11,34 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
+long long factorial(int x);
 
+long long factorial(int x){
+    long long ans=1;
+    for (int i=1;i<=x;i++) ans=ans*i;
+    return ans;
+}
 
 double myCos(double x) 
 {
-     
-     return cos(x);
+     double cos=0,precos; int m=0;
+     do{
+        precos=cos;
+        cos+=pow(-1,m)*pow(x,2*m)/factorial(2*m);
+        m++;
+     } while (fabs(precos-cos)>=0.0000001);
+     return cos;
 }
 
 double mySin(double x)
 {
-    
-    return sin(x);
+    double sin=0,presin; int m=0;
+    do{
+        presin=sin;
+        sin+=pow(-1,m)*pow(x,2*m+1)/factorial(2*m+1);
+        m++;
+    } while (fabs(presin-sin)>=0.0000001);
+    return sin;
 }
 
 double mySqrt(double x) {
@@ -30,6 +46,10 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    
-    return sqrt(x);
+    double sqrt=x/2,preSqrt; 
+    do{
+        preSqrt=sqrt;
+        sqrt=(sqrt+x/sqrt)/2;
+    } while (fabs(preSqrt-sqrt)>=0.000000001);
+    return sqrt;
 }
