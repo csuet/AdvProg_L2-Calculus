@@ -54,7 +54,7 @@ double mySin(double x)
         factorial = factorial * n * (n + 1);
         ++n;
         oldsinX = sinX;
-        sinX = sinX - 1.0/factorial * pow(x, n) * pow(-1, n/2 + 1);
+        sinX = sinX - 1.0/factorial * pow(x, n) * pow(-1, (n-1)/2 + 1);
     } while (abs(sinX - oldsinX) > 0.000001);
     return sinX;
 }
