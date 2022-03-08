@@ -55,7 +55,7 @@ double mySin(double x)
         ++n;
         oldsinX = sinX;
         sinX = sinX - 1.0/factorial * pow(x, n) * pow(-1, (n-1)/2 + 1);
-    } while (abs(sinX - oldsinX) > 0.000001);
+    } while (abs(sinX - oldsinX) > 0.01);
     return sinX;
 }
 
@@ -72,7 +72,7 @@ double mySqrt(double x) {
         exit(1);
     }
     double result = 1;
-    while (fabs(result * result - x) / x >= 0.000001)
+    while (fabs(result * result - x) / x >= 0.01)
         result = (x / result  - result) / 2 + result;
     return result;
 }
