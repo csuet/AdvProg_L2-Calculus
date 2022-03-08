@@ -7,6 +7,14 @@ using std::cout;
 using std::endl;
 using std::stod;
 
+double fac(double number)
+{
+    if (number<=1)
+    {
+        return 1;
+    }
+    else return number*fac(number-1);
+}
 
 double mySin(double x);
 double myCos(double x);
@@ -20,7 +28,13 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return cos(x);
+    double cosx = 0;
+	for (int i = 0; i < 100; i++)
+	{
+		cosx += (pow(-1, i) * pow(x, 2 * i) / fac(i * 2));
+	}
+	return cosx;
+   
 }
 
 /***
@@ -31,7 +45,11 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sin(x);
+    double sinx = 0;
+    for (int i = 0; i < 100; i++){
+        sinx += double(pow(-1, i)*pow(x, 2*i+1))/ fac(2*i+1);
+    }
+    return sinx;
 }
 
 
@@ -46,7 +64,8 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    else return sqrt(x);
-    
-    return 0;
+    else double result = 1.0f;
+    while (fabs(result * result - x) / x >= 0.00000001)
+        result = (x / result  - result) / 2 + result;
+    return result;
 }
