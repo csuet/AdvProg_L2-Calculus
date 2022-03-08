@@ -24,7 +24,7 @@ double myCos(double x)
     double mul = 1;
     double result = 1;
     double oldResult = 0;
-    while(abs(result - oldResult) > 0.00000000001) {
+    while(fabs(result - oldResult) > 0.00000000001) {
         oldResult = result;
         mul *= -1*(x*x)/(mau*(mau-1));
         result += mul;
@@ -45,7 +45,7 @@ double mySin(double x)
     double mul = 1;
     double result = x;
     double oldResult = 0;
-    while(abs(result - oldResult) > 0.00000000001) {
+    while(fabs(result - oldResult) > 0.00000000001) {
         oldResult = result;
         mul *= -1*(x*x)/(mau*(mau-1));
         result += mul;
@@ -67,7 +67,7 @@ double mySqrt(double x) {
         exit(1);
     }
     double result = 1.0;
-    while(abs(result * result - x)/ x >= 0.00000000001)
+    while(fabs(result * result - x)/ x >= 0.00000000001)
         result = (x/result - result)/2 + result;
     return result;
 }
