@@ -20,7 +20,20 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return cos(x);
+    //calculate cos with Taylor series
+    while (x >= 2 * M_PI) {
+        x -= 2 * M_PI;
+    }
+    double cos = 1;
+    double factorial = 1;
+    double term = 1;
+    for (int i = 1; i <= 10; i++) {
+        factorial *= i;
+        term *= -1 * x * x;
+        term /= 2 * i + 1;
+        cos += term / factorial;
+    }
+    return cos;
 }
 
 /***
@@ -31,7 +44,19 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sin(x);
+    //calculate sin with Taylor series
+    while (x >= 2 * M_PI) {
+        x -= 2 * M_PI;
+    }
+    double sin = 0;
+    double factorial = 1;
+    double term = 1;
+    for (int i = 1; i <= 10; i++) {
+        factorial *= i;
+        term *= -1 * x * x;
+        term /= 2 * i + 1;
+        sin += term / factorial;
+    }
 }
 
 
