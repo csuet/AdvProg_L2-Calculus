@@ -24,7 +24,7 @@ double myCos(double x)
 		x -= 2*M_PI;
 	}
     double cos = 1.00;
-	double i = 1;
+	int i = 1;
 	double a = 1.00;
 	while(a>0.00001){
 		a=1.00;
@@ -50,7 +50,7 @@ double mySin(double x)
 		x -= 2*M_PI;
 	}
     double sin=x*1.00;
-	double i=1;
+	int i=1;
 	double a=1.00;
 	while(a>0.00001){
 		a=1.00;
