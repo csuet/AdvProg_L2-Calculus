@@ -24,23 +24,17 @@ double myCos(double x)
     {
         x -= 2 * M_PI;
     }
-    double cos = 1.00;
-    int i = 1;
-    double temp = 1.00;
-    while (temp > 0.00001)
-    {
-        temp = 1.00;
-        for (int j = 1; j <= 2 * i; j++)
-        {
-            temp *= x * 1.00 / j;
-        }
-        if (i % 2 == 0)
-            cos += temp;
-        else
-            cos -= temp;
-        i++;
+    int mau = 2;
+    double mul = 1;
+    double result = 1;
+    double oldResult = 0;
+    while(fabs(result - oldResult) >= 0.0000000001) {
+        oldResult = result;
+        mul *= -1*(x*x)/(mau*(mau-1));
+        result += mul;
+        mau += 2;
     }
-    return cos;
+    return result;
 }
 
 /***
@@ -55,23 +49,19 @@ double mySin(double x)
     {
         x -= 2 * M_PI;
     }
-    double sin = x * 1.00;
-    int i = 1;
-    double temp = 1.00;
-    while (temp > 0.00001)
-    {
-        temp = 1.00;
-        for (int j = 1; j <= 2 * i + 1; j++)
-        {
-            temp *= x * 1.00 / j;
-        }
-        if (i % 2 == 0)
-            sin += temp;
-        else
-            sin -= temp;
-        i++;
+    long long mau = 3;
+    double mul = x;
+    double result = x;
+    double oldResult = 0;
+    while(fabs(result - oldResult) > 0.000000000001) {
+        oldResult = result;
+        mul *= -1*(x*x)/(mau*(mau-1));
+        cout << mul << endl;
+        result += mul;
+        cout << result << endl;
+        mau += 2;
     }
-    return sin;
+    return result;
 }
 
 
