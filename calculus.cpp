@@ -65,10 +65,11 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    else
-        double result = 1.0;
-        while (fabs(result * result - number) / number >= EPSILON) {
-            result = (number / result - result) / 2 + result;
-        }
+    else {
+            double result = 1.0;
+            while (fabs(result * result - number) / number >= EPSILON) {
+                result = (number / result - result) / 2 + result;
+            }
+         }
         return result;
 }
