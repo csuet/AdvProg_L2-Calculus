@@ -21,21 +21,21 @@ double mySqrt(double x);
 double myCos(double x) 
 {
     //calculate cos with Taylor series
-    while (x >= 2 * M_PI) {
-        x -= 2 * M_PI;
+    while(x>2*M_PI){
+        x-=2*M_PI;
     }
-    double cos = 1;
-    double numerator = 1;
-    double n = 1;
-    double factorial = 1;
-    double temp;
-    do {
-        numerator *= -1;
-        factorial *= 2 * n;
-        n++;
-        temp = (numerator / factorial) * x * x;
-        cos += temp;
-    } while (temp > 0.000001);
+    double cos=1.00;
+    int i=1;
+    double a=1.00;
+    while(a>0.00001){
+        a=1.00;
+        for(int j =1;j<=2*i;j++){
+            a*=x*1.00/j;
+        }
+        if(i%2==0) cos+=a;
+        else cos-=a;
+        i++;
+    }
     return cos;
 }
 
@@ -48,21 +48,21 @@ double myCos(double x)
 double mySin(double x)
 {
     //calculate sin with Taylor series
-    while (x >= 2 * M_PI) {
-        x -= 2 * M_PI;
+    while(x>2*M_PI){
+        x-=2*M_PI;
     }
-    double sin = 1;
-    double numerator = 1;
-    double n = 1;
-    double factorial = 1;
-    double temp;
-    do {
-        numerator *= -1;
-        factorial *= 2 * n + 1;
-        n++;
-        temp = (numerator / factorial) * x * x;
-        sin += temp * x;
-    } while (temp > 0.000001);
+    double sin=x*1.00;
+    int i=1;
+    double a=1.00;
+    while(a>0.00001){
+        a=1.00;
+        for(int j =1;j<=2*i +1;j++){
+            a*=x*1.00/j;
+        }
+        if(i%2==0) sin+=a;
+        else sin-=a;
+        i++;
+    }
     return sin;
 }
 
@@ -78,7 +78,18 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
+    else{
+        double sqrt;
+        double guess[100];
+        guess[0] = 10.00;
+        int i=1;
+        do{
+            guess[i]=(guess[i-1]+(x/guess[i-1]))/2;
+            sqrt=guess[i];
+            i++;
+        }while(guess[i]!=guess[i-1] && i<100);
+        return sqrt;
+    }
     
-    return sqrt(x);
+    return 0;
 }
