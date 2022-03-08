@@ -2,11 +2,7 @@
 #include <string>
 #include <cmath>
 
-using std::string;
-using std::cout;
-using std::endl;
-using std::stod;
-using std::pow;
+using namespace std;
 
 
 double mySin(double x);
