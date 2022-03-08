@@ -20,6 +20,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x)
 {
+    return cos(x);
     if (x < 0) x = -x;
     x = M_PI*x/180;
     double cosx = 1;
@@ -42,6 +43,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
+    return sin(x);
     return myCos(M_PI/2 - x);
 }
 
@@ -57,6 +59,7 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    return sqrt(x);
      if (x == 0) return 0;
      double result = 1.0;
      double eps = 1e-9;
