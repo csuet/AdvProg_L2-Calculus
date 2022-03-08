@@ -18,9 +18,19 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
-{
-    return 0.0;
+
+double myCos(double x){
+    double result=1;
+    double temp=1;
+    int i = 0;
+    while (temp>0.00001||temp<-0.00001)
+    {
+        i++;
+        temp=(temp*x/(2*i))*(x/(2*i-1));
+        if (i%2==0) result=result+temp;
+        else result=result-temp;
+    }
+    return result;
 }
 
 /***
@@ -29,11 +39,19 @@ double myCos(double x)
     Returns:
         double: sine of x
 ***/
-double mySin(double x)
-{
-    return 0.0;
+double mySin(double x){
+    double result=x;
+    double temp=x;
+    int i = 0;
+    while (temp>0.00001||temp<-0.00001)
+    {
+        i++;
+        temp=(temp*x/(2*i+1))*(x/(2*i));
+        if (i%2==0) result=result+temp;
+        else result=result-temp;
+    }
+    return result;
 }
-
 
 /***
     Args:
@@ -41,12 +59,17 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
+
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    else
+    {
+        double result = 1.0;
+        while (fabs(result * result - x) / x >= 0.00001)
+            result = (x / result  - result) / 2 + result;
+        return result;
+    }
 }
