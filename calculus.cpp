@@ -63,30 +63,35 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
+const int digitsAfterComma = 4;
+
+double sqrtCalculator(double x, double high, double low, double kbc){
+    if (high == 0)
+        return 0;
+    if (kbc <= pow(10, -(digitsAfterComma+1))){
+        return high;
+    }
+    if (high*high == x){
+        return high;
+    }
+    if (low*low == x){
+        return low;
+    }
+    if (high*high >= x && x >=low*low){
+        return sqrtCalculator(x, high, high-kbc/10, kbc/10);
+    }
+    return sqrtCalculator(x, high-kbc, low-kbc, kbc);
+}
+
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double xBackUp = x;
     std::stringstream ss;
-    ss << x; 
+    ss << x;
     string xDigits = ss.str();
-    double high=0, low=0;
-    for (double i=xDigits.size()-1; i>=-3; i--){
-        double sbc = pow(10, i); cout << "sbc" << sbc <<endl;
-        high = x, low = x - sbc; cout << "high" << high <<endl; cout << "low" << low <<endl;
-        while (low>=0){
-            if (high*high == xBackUp)
-                return high;
-            if (low*low == xBackUp)
-                return low;
-            if (high*high >= xBackUp && xBackUp >=low*low){
-                break;
-            }else{
-                high -= sbc; low -= sbc; cout << "inwhile: high" << high << endl; cout << "inwhile: low" << low << endl;
-            }
-        }
-    }
-    return low;
+    double kbc = pow(10, xDigits.size()-1);
+    double high=x, low=x-kbc;
+    return sqrtCalculator(x, high, low, kbc);
 }
