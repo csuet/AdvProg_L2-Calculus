@@ -22,22 +22,24 @@ double mySqrt(double x);
 double myCos(double x)
 {
     while (x > 2 * M_PI)
+    {
         x -= 2 * M_PI;
+    }
     double cos = 1.00;
-    int n = 1;
+    int i = 1;
     double temp = 1.00;
     while (temp > 0.00001)
     {
         temp = 1.00;
-        for (int i = 1; i <= 2 * n; i++)
+        for (int j = 1; j <= 2 * i; j++)
         {
-            temp *= x * 1.00 / i;
+            temp *= x * 1.00 / j;
         }
-        if (n % 2 == 0)
+        if (i % 2 == 0)
             cos += temp;
         else
             cos -= temp;
-        n++;
+        i++;
     }
     return cos;
 }
@@ -51,22 +53,24 @@ double myCos(double x)
 double mySin(double x)
 {
     while (x > 2 * M_PI)
+    {
         x -= 2 * M_PI;
+    }
     double sin = x * 1.00;
-    int n = 1;
+    int i = 1;
     double temp = 1.00;
     while (temp > 0.00001)
     {
         temp = 1.00;
-        for (int i = 1; i <= 2 * n; i++)
+        for (int j = 1; j <= 2 * i + 1; j++)
         {
-            temp *= x * 1.00 / i;
+            temp *= x * 1.00 / j;
         }
-        if (n % 2 == 0)
+        if (i % 2 == 0)
             sin += temp;
         else
             sin -= temp;
-        n++;
+        i++;
     }
     return sin;
 }
@@ -86,6 +90,6 @@ double mySqrt(double x)
     }
     double result = 1.0f;
     while (fabs(result * result - x) / x >= EPSILON)
-        result = (x / result  - result) / 2 + result;
+        result = (x / result - result) / 2 + result;
     return result;
 }
