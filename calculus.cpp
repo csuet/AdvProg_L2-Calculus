@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-
+#define EPSILON 0.0001f
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
@@ -20,17 +20,27 @@ double mySqrt(double x);
 ***/
 double myCos(double x)
 {
-    long long mau = 2;
-    double mul = 1;
-    double result = 1;
-    double oldResult = 0;
-    while(fabs(result - oldResult) > 0.00001) {
-        oldResult = result;
-        mul *= -1*(x*x)/(mau*(mau-1));
-        result += mul;
-        mau += 2;
+    while (x > 2 * M_PI)
+    {
+        x -= 2 * M_PI;
     }
-    return result;
+    double cos = 1.00;
+    int i = 1;
+    double temp = 1.00;
+    while (temp > 0.00001)
+    {
+        temp = 1.00;
+        for (int j = 1; j <= 2 * i; j++)
+        {
+            temp *= x * 1.00 / j;
+        }
+        if (i % 2 == 0)
+            cos += temp;
+        else
+            cos -= temp;
+        i++;
+    }
+    return cos;
 }
 
 /***
@@ -41,17 +51,27 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    long long mau = 3;
-    double mul = 1;
-    double result = x;
-    double oldResult = 0;
-    while(fabs(result - oldResult) > 0.00001) {
-        oldResult = result;
-        mul *= -1*(x*x)/(mau*(mau-1));
-        result += mul;
-        mau += 2;
+    while (x > 2 * M_PI)
+    {
+        x -= 2 * M_PI;
     }
-    return result;
+    double sin = x * 1.00;
+    int i = 1;
+    double temp = 1.00;
+    while (temp > 0.00001)
+    {
+        temp = 1.00;
+        for (int j = 1; j <= 2 * i + 1; j++)
+        {
+            temp *= x * 1.00 / j;
+        }
+        if (i % 2 == 0)
+            sin += temp;
+        else
+            sin -= temp;
+        i++;
+    }
+    return sin;
 }
 
 
@@ -66,8 +86,8 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double result = 1.0;
-    while(fabs(result * result - x)/ x >= 0.00001)
-        result = (x/result - result)/2 + result;
+    double result = 1.0f;
+    while (fabs(result * result - x) / x >= EPSILON)
+        result = (x / result - result) / 2 + result;
     return result;
 }
