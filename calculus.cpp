@@ -22,7 +22,7 @@ double myCos(double x)
 {
     return cos(x);
     if (x < 0) x = -x;
-    x = M_PI*x/180;
+    x = x - (x / (2 * M_PI)) * 2 * M_PI;
     double cosx = 1;
     double eps = 1e-9;
     double n = 1, t = 1;
@@ -63,8 +63,8 @@ double mySqrt(double x) {
      if (x == 0) return 0;
      double result = 1.0;
      double eps = 1e-9;
-     while (abs(result * result - number) / number >= eps)
-         result += (number / result  - result) / 2;
+     while (abs(result * result - x) / x >= eps)
+         result += (x / result  - result) / 2;
      return result;
 
 }
