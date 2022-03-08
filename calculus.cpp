@@ -67,7 +67,7 @@ double mySqrt(double x) {
     }
     else
         double result = 1.0f;
-        while (fabs(result*result–number)/number>=EPSILON)
-        result=(number/result–result)/2+result;
+        while (fabs(result * result - number) / number >= EPSILON)
+            result = (number / result  - result) / 2 + result;
         return result;
 }
