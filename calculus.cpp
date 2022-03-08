@@ -25,14 +25,17 @@ double myCos(double x)
         x -= 2 * M_PI;
     }
     double cos = 1;
+    double numerator = 1;
+    double n = 1;
     double factorial = 1;
-    double term = 1;
-    for (int i = 1; i <= 10; i++) {
-        factorial *= i;
-        term *= -1 * x * x;
-        term /= 2 * i + 1;
-        cos += term / factorial;
-    }
+    double temp;
+    do {
+        numerator *= -1;
+        factorial *= 2 * n;
+        n++;
+        temp = (numerator / factorial) * x * x;
+        cos += temp;
+    } while (temp > 0.000001);
     return cos;
 }
 
@@ -48,15 +51,19 @@ double mySin(double x)
     while (x >= 2 * M_PI) {
         x -= 2 * M_PI;
     }
-    double sin = 0;
+    double sin = 1;
+    double numerator = 1;
+    double n = 1;
     double factorial = 1;
-    double term = 1;
-    for (int i = 1; i <= 10; i++) {
-        factorial *= i;
-        term *= -1 * x * x;
-        term /= 2 * i + 1;
-        sin += term / factorial;
-    }
+    double temp;
+    do {
+        numerator *= -1;
+        factorial *= 2 * n + 1;
+        n++;
+        temp = (numerator / factorial) * x * x;
+        sin += temp * x;
+    } while (temp > 0.000001);
+    return sin;
 }
 
 
