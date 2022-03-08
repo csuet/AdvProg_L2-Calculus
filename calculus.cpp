@@ -1,18 +1,25 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <bits/stdc++.h>
 
 using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
-
+using std::cin;
 
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 double factorial(double x);
 
+int main()
+{
+    double x;
+    cin >> x;
+    cout << mySqrt(x) << endl;
+}
 double factorial(double x)
 {
     double factorial = 1;
@@ -81,18 +88,21 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-    if (x < 0) {
+    if (x < 0) 
+    {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double mySqrt = 1;
-    double myOldSqrt = 0; 
-    while(abs(mySqrt - myOldSqrt) > 0.0001)
+    else 
     {
-        myOldSqrt = mySqrt;
-        mySqrt = mySqrt - ((pow(mySqrt, 2) - x) / (2 * mySqrt));
+        double mySqrt = 1;
+        double myOldSqrt = 0; 
+        while(abs(mySqrt - myOldSqrt) > 0.0001)
+        {
+            myOldSqrt = mySqrt;
+            mySqrt = mySqrt - ((pow(mySqrt, 2) - x) / (2 * mySqrt));
+        }
+        return mySqrt; 
     }
-    return mySqrt; 
     
-    return sqrt(x);
 }
