@@ -84,7 +84,8 @@ double mySqrt(double x) {
             sqrt=a[i];
             i++;
         }while(a[i]!=a[i-1] && i<100);
+        return sqrt;
     }
-            return sqrt;
+            return 0;
 
 }
