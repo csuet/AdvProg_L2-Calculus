@@ -20,20 +20,22 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    const double limit = 0.000000000000000001;
-    double cosx = 1.0, preCosx = 0.0,element = 1.0;
+    const double limit = 0.00000000000000000001;
+    double cosx = 1.0, preCosx = 0.0, exp_x = 1.0, factorial = 1.0;
     int i = 1;
-    while(x<0 || x> 2*M_PI){
-        x -= 2*M_PI;
-    }
+    while(x > M_PI) x -= 2 * M_PI;
 
+    while(x < -M_PI) x += 2 * M_PI;
+
+    
     do{
         preCosx = cosx;
-        element *= (-x*x)/((2*i)*(2*i-1));
-        cosx += element;
+        factorial = factorial * (2*i-1) * (2*i);
+        exp_x *= (x*x);
+        cosx += (pow(-1,i)/ factorial)*exp_x;
         i++;
     }
-    while(fabs(element) >= limit);
+    while(fabs(cosx - preCosx) >= limit);
 
     return cosx;
 }
@@ -46,7 +48,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sqrt(1-myCos(x)*myCos(x));
+    return mySqrt(1-myCos(x)*myCos(x));
 }
 
 
@@ -63,11 +65,11 @@ double mySqrt(double x) {
     }
     
     //baybylon algorithm
-    double preS,S = 10.0;
+    double preS,S = 5.0;
     do{
         preS = S;
         S = (preS + x/preS)/2;
-    }while(fabs(S-preS) >= 0.0001);
+    }while(fabs(S-preS) >= 0.000001);
     
     return S;
 }
