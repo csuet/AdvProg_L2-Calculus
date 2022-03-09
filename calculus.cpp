@@ -41,12 +41,19 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
-double mySqrt(double x) {
-    if (x < 0) {
+double mySqrt(double a) {
+    if (a < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
 
-
-    return sqrt(x);
+    double x,t;x=a/2;
+    do
+    {
+        t=x;
+        x=x-(x*x-a)/2/x;
+    }
+    while (t-x>0.0000000000000001);
+        cout<<x;
+    return sqrt(a);
 }
