@@ -55,5 +55,5 @@ double mySqrt(double a) {
     }
     while (t-x>0.0000000000000001);
         
-    return sqrt(x);
+    return x;
 }
