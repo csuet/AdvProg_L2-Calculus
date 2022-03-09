@@ -54,6 +54,6 @@ double mySqrt(double a) {
         x=x-(x*x-a)/2/x;
     }
     while (t-x>0.0000000000000001);
-        cout<<x;
-    return sqrt(a);
+        
+    return sqrt(x);
 }
