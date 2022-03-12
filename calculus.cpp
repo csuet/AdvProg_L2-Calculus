@@ -20,7 +20,18 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double cosX = 1;
+    double temp = 1;
+    int i = 0;
+    while (temp > 0.000001 || temp < -0.000001) {
+        ++i;
+        temp = temp * x / (2 * i) * x / (2 * i - 1);
+        if (i & 1)
+            cosX -= temp;
+        else
+            cosX += temp;
+    }
+    return cosX;
 }
 
 /***
@@ -31,7 +42,18 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double sinX = x;
+    double temp = x;
+    int i = 0;
+    while (temp > 0.000001 || temp < -0.000001) {
+        ++i;
+        temp = temp * x / (2 * i + 1) * x / (2 * i);
+        if (i & 1)
+            sinX -= temp;
+        else
+            sinX += temp;
+    }
+    return sinX;
 }
 
 
@@ -46,7 +68,8 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    double result = 1.0f;
+    while (fabs(result * result - number) / number >= EPSILON)
+        result = (number / result  - result) / 2 + result;
+    return result;
 }
