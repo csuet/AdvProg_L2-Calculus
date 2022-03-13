@@ -91,7 +91,7 @@ double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
-    }else{
+    }else{	
         double sqrt[100];
 		sqrt[0] = 1.00;
 		int i = 1;
