@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-
+const double PI_TEST = 3.14159265359;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
