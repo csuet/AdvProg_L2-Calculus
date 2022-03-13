@@ -18,6 +18,10 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
+double factorial(double x){
+    if (x==0||x==1) return 1;
+    return x*factorial(x-1);
+}
 double myCos(double x){
     double sum=1; double oldsum=0;
     int i=0;
