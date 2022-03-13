@@ -7,7 +7,10 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-
+double factorial(double x){
+    if (x==0||x==1) return 1;
+    return x*factorial(x-1);
+}
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
@@ -18,10 +21,6 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double factorial(double x){
-    if (x==0||x==1) return 1;
-    return x*factorial(x-1);
-}
 double myCos(double x){
     double sum=1; double oldsum=0;
     int i=0;
@@ -38,13 +37,12 @@ double myCos(double x){
     Returns:
         double: sine of x
 ***/
-double mySin(double x)
-{
-     double sum=x; double oldsum=0;
+double mySin(double x){
+    double sum=x; double oldsum=0;
     int i=0;
     while(fabs(sum-oldsum)>0.00001){
         oldsum=sum; i++;
-        sum+=(pow(-1,i)(pow(x,2i+1))/factorial(2*i+1));
+        sum+=(pow(-1,i)*(pow(x,2*i+1))/factorial(2*i+1));
     }
     return sum;
 }
