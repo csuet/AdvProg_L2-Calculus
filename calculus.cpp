@@ -24,7 +24,6 @@ double factorial( double number ) {
 }
 double myCos(double x) 
 {
-	return 0.0;
 	double sum = 0;
 	for (int i = 0; i < 100; i++)
 	{
@@ -42,7 +41,6 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
     double sum = 0;
 	for (int i = 0; i < 100; i++)
 	{
@@ -59,7 +57,11 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-	return 0;
+	    if (x < 0) {
+        cout << "Invalid argument" << endl;
+        exit(1);
+    }
+}
     double previousNumber = x;
     double afterNumber = x;
 	for (int i = 0; i < 100; i++)
@@ -68,7 +70,6 @@ double mySqrt(double x) {
 		previousNumber = afterNumber;
 	}
 	return afterNumber;
-        exit(1);
     }
 
     
