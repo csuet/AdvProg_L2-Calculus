@@ -1,36 +1,37 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-
 using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
-
-
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-
 /***
     Args:
         x (double): a number
     Returns:
         double: cosine of x
 ***/
-double factorial( double number ) {
-    if ( number == 1 || number == 0 ) return 1;
-    else return number * factorial(number - 1);
-}
-double myCos(double x) 
+double myCos(double x)
 {
-	double sum = 0;
-	for (int i = 0; i < 100; i++)
-	{
-		sum += (pow(-1, i) * pow(x, 2 * i) / factorial(i * 2));
-	}
-	return sum;
-    ;
+    while (x > 2 * M_PI) {
+        x -= 2 * M_PI;
+    }
+    double cos = 1.00;
+    int i = 1;
+    double a = 1.00;
+    while (a > 0.00001) {
+        a = 1.00;
+        for (int j = 1; j <= 2 * i; j++) {
+            a *= x * 1.00 / j;
+        }
+        if (i % 2 == 0) cos += a;
+        else cos -= a;
+        i++;
+    }
+    return cos;
 }
 
 /***
@@ -41,12 +42,22 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double sum = 0;
-	for (int i = 0; i < 100; i++)
-	{
-		sum += (pow(-1, i) * pow(x, 2 * i + 1) / factorial(i * 2 + 1));
-	}
-	return sum;
+    while (x > 2 * M_PI) {
+        x -= 2 * M_PI;
+    }
+    double sin = x * 1.00;
+    int i = 1;
+    double a = 1.00;
+    while (a > 0.00001) {
+        a = 1.00;
+        for (int j = 1; j <= 2 * i + 1; j++) {
+            a *= x * 1.00 / j;
+        }
+        if (i % 2 == 0) sin += a;
+        else sin -= a;
+        i++;
+    }
+    return sin;
 }
 
 
@@ -57,21 +68,24 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-	    if (x < 0) {
+    if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-}
-    double previousNumber = x;
-    double afterNumber = x;
-	for (int i = 0; i < 100; i++)
-	{
-		afterNumber = 1.0 / 2 * (previousNumber + x / previousNumber);
-		previousNumber = afterNumber;
-	}
-	return afterNumber;
-    }
 
-    
+    else {
+        double sqrt;
+        double guess[100];
+        guess[0] = 10.00;
+        int i = 1;
+        do {
+            guess[i] = (guess[i - 1] + (x / guess[i - 1])) / 2;
+            sqrt = guess[i];
+            i++;
+        } while (guess[i] != guess[i - 1] && i < 100);
+        return sqrt;
+    }
+    return (double) sqrt(x);
+} 
     
 
