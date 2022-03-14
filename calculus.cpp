@@ -5,17 +5,6 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
-
-const double epsilon = 0.000001;
-double factorial(double number)
-{
-    if (number<=1)
-    {
-        return 1;
-    }
-    else return number*factorial(number-1);
-}
-
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
@@ -28,15 +17,22 @@ double mySqrt(double x);
 double myCos(double x) 
 {
     return 0.0;
-    double result = 0;
-    double k = 0;
-    while (fabs(((1/factorial(2*k))*pow(-1,k)*pow(x,2*k))) > epsilon)
-    {
-        result += ((1/factorial(2*k))*pow(-1,k)*pow(x,2*k));
-        k++;
-    }
-
-    return result;
+    while(x>2*M_PI){
+		x-=2*M_PI;
+	}
+    double cos=1.00;
+	int i=1;
+	double a=1.00;
+	while(a>0.00001){
+		a=1.00;
+		for(int j =1;j<=2*i;j++){
+			a*=x*1.00/j;
+		}
+		if(i%2==0) cos+=a;
+		else cos-=a;
+		i++;
+	}
+    return cos;
 }
 
 /***
@@ -48,18 +44,22 @@ double myCos(double x)
 double mySin(double x)
 {
     return 0.0;
-    double result = 0;
-    double k=1; int pos = 1;
-    while (fabs((1/factorial(k))*pow(x,k))>epsilon)
-    {
-        if (pos%2!=0)
-        {
-            result+=(1/factorial(k))*pow(x,k);
-        }
-        else result-=(1/factorial(k))*pow(x,k);
-        k+=2; pos++;
-    }
-    return result;
+    while(x>2*M_PI){
+		x-=2*M_PI;
+	}
+    double sin=x*1.00;
+	int i=1;
+	double a=1.00;
+	while(a>0.00001){
+		a=1.00;
+		for(int j =1;j<=2*i +1;j++){
+			a*=x*1.00/j;
+		}
+		if(i%2==0) sin+=a;
+		else sin-=a;
+		i++;
+	}
+    return sin;
 }
 
 
@@ -70,21 +70,23 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-    double initialGuess = x/2;
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
 
+    else{
+        double sqrt;
+        double guess[100];
+        guess[0] = 10.00;
+        int i=1;
+        do{
+            guess[i]=(guess[i-1]+(x/guess[i-1]))/2;
+            sqrt=guess[i];
+            i++;
+        }while(guess[i]!=guess[i-1] && i<100);
+        return sqrt;
+    }
 
     return 0;
-    else
-    {
-        while (fabs(( (initialGuess*initialGuess - x) / (2*initialGuess) )) > epsilon)
-        {
-            /* code */
-            initialGuess = initialGuess - ((initialGuess*initialGuess - x)/(2*initialGuess));
-        }
-    }
-    return initialGuess;
 }
