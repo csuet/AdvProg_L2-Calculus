@@ -20,9 +20,11 @@ double factorial(double x);
         double: cosine of x
 ***/
 double factorial(double x){
-    if(x == 1 || x == 0){
-        return x*factorial(x-1);
-    }
+    if(x == 1 || x == 0)
+        return 1;
+        
+    return x*factorial(x-1);
+    
 }
 double myCos(double x) 
 {
