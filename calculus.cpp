@@ -84,9 +84,4 @@ double mySqrt(double x) {
 
     return sqrt(x);
 }
-int main()
-{
-    double x;
-    std::cin >> x;
-    cout << mySin(x) << '\n';
-}
+
