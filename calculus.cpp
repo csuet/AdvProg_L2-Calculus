@@ -65,3 +65,7 @@ double mySqrt(double x) {
 	}
     return afterNum;
 }
+
+int Sum(int a, int b) {
+	return a + b;
+}
