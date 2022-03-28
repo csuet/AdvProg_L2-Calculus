@@ -6,5 +6,6 @@
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
+int Sum(int a, int b);
 
 #endif
