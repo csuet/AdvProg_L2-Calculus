@@ -60,13 +60,13 @@ protected:
     TestStruct sumTestCases[testSize] = {
         {
             "test 1",
-            isClose(mySum(2+3),5),
+            isClose(Sum(2+3),5),
             true,
             "2 + 3 = 5"
         },
         {
-            "test 2,
-            isClose(mySum(2+4),6),
+            "test 2",
+            isClose(Sum(2+4),6),
             true,
             "2 + 4 = 6"
         }
