@@ -48,6 +48,7 @@ class Test: public CPPUNIT_NS::TestCase
   CPPUNIT_TEST(testMyCos);
   CPPUNIT_TEST(testMySin);
   CPPUNIT_TEST(testMySqrt);
+  CPPUNIT_TEST(testMyPlus);
   CPPUNIT_TEST(successTestExit);
   CPPUNIT_TEST_SUITE_END();
 
@@ -157,6 +158,40 @@ protected:
 
       };
       runTestLoop(sinTestCases, testSize);
+    //   exit(0);
+  }
+  
+    void testMyPlus(void){
+      int testSize = 4;
+      std::string sharedName = "[Plus test] ";
+      TestStruct plusTestCases[testSize]  = 
+      {
+        {
+            sharedName + "test normal 1", 
+            isClose(myPlus(1,2), 1+2), 
+            true, 
+            "1 plus 2 should be close to 3 \n"
+        },
+        {
+           sharedName + "test normal 2", 
+            isClose(myPlus(1,4), 1+4), 
+            true, 
+            "1 plus 4 should be close to 5 \n"
+        },
+        {
+           sharedName + "test normal 3", 
+            isClose(myPlus(1,9), 1+9), 
+            true, 
+            "1 plus 9 should be close to 10 \n"
+        },
+        {
+            sharedName + "test normal 4", 
+            isClose(myPlus(8,2), 8+2), 
+            true, 
+            "8 plus 2 should be close to 10 \n"
+        },
+      };
+      runTestLoop(plusTestCases, testSize);
     //   exit(0);
   }
 
