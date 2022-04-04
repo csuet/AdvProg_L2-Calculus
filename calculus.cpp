@@ -78,3 +78,6 @@ for(int i=1;i<100;i++){
     
     return temp;
 }
+double myPlus(int a,int b){
+    return a+b;
+}
