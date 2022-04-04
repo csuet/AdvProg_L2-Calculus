@@ -173,19 +173,19 @@ protected:
             "1 plus 2 should be close to 3 \n"
         },
         {
-           sharedName + "test normal 1", 
+           sharedName + "test normal 2", 
             isClose(myPlus(1,4), 1+4), 
             true, 
             "1 plus 4 should be close to 5 \n"
         },
         {
-           sharedName + "test normal 1", 
+           sharedName + "test normal 3", 
             isClose(myPlus(1,9), 1+9), 
             true, 
             "1 plus 9 should be close to 10 \n"
         },
         {
-            sharedName + "test normal 1", 
+            sharedName + "test normal 4", 
             isClose(myPlus(8,2), 8+2), 
             true, 
             "8 plus 2 should be close to 10 \n"
