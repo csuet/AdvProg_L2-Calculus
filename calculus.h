@@ -7,5 +7,5 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 double gt(int a,double x);
-
+double myPlus(int a, int b);
 #endif
